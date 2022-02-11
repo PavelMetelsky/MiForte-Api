@@ -1,10 +1,5 @@
 ﻿using MediatR;
 using Piano.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Piano.BusinessLogic.Commands.Users.CreateUser
 {
@@ -27,7 +22,7 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
                 UserId = Guid.NewGuid(),
             }, cancellationToken);
 
-            await _pianoContext.SaveChangesAsync();
+            await _pianoContext.SaveChangesAsync(cancellationToken);
 
             return default;
         }

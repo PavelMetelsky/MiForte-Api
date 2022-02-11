@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Piano.BusinessLogic.Commands.Users.CreateUser;
 using Piano.BusinessLogic.Models;
@@ -19,7 +20,6 @@ namespace Piano.Api.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<UsersController>
         [HttpGet]
         public async Task<List<User>> GetUsers()
         {
