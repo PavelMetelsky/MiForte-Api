@@ -7,9 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegestrationComponent } from './regestration/regestration.component';
 import { RegestrationMainComponent } from './regestration-main/regestration-main.component';
 import { RegestrationRoleComponent } from './regestration-role/regestration-role.component';
+import { RegestrationDataComponent } from './regestration-data/regestration-data.component';
 
 @NgModule({
-  declarations: [AppComponent, RegestrationComponent, RegestrationMainComponent, RegestrationRoleComponent],
+  declarations: [AppComponent, RegestrationComponent, RegestrationMainComponent, RegestrationRoleComponent, RegestrationDataComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
