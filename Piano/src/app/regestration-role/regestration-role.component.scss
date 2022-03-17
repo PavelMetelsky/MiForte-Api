@@ -1,0 +1,237 @@
+.content{
+    position: absolute;
+    width: 400px;
+    height: 507px;
+    left: 520px;
+    top: 184px;
+}
+.btn-sbm-pos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 70px;
+
+    position: absolute;
+    width: 192px;
+    height: 47px;
+    left: calc(50% - 192px/2);
+    top: calc(50% - 47px/2 + 230px);
+}
+
+.inactiveButton{
+    background: #B1C6BD;
+    border-radius: 5px;
+}
+
+.activeButton{
+    background: #59A686;
+    border-radius: 5px;
+}
+
+.enter{
+    position: static;
+    width: 52px;
+    height: 19px;
+    left: 70px;
+    top: 14px;
+}
+
+.txt-buttonMIFORTE{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    color: #FFFFFF;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+.text{
+    position: absolute;
+    width: 400px;
+    height: 38px;
+    left: calc(50% - 400px/2);
+    top: 0px;
+}
+
+.registration{
+    position: absolute;
+    width: 399px;
+    height: 38px;
+    left: 0px;
+    top: 0px;
+}
+
+.H2-MIFORTE{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+
+    display: block;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    color: #000000;
+}
+
+.steps{
+    position: absolute;
+    width: 236px;
+    height: 28px;
+    left: 79px;
+    top: 78px;
+
+}
+
+.elipse1{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 2px;
+    top: 2px;
+}
+
+.elipse2{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 106px;
+    top: 2px;
+}
+
+.elipse3{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 210px;
+    top: 2px;
+}
+
+.inactiveElipse{
+    border: 4px solid #EDF1F6;
+}
+
+.inactiveRectangle{
+    background: #EDF1F6;
+    border-radius: 2px;
+}
+
+.curentElipse{
+    border: 4px solid #86BAA4;
+}
+
+.rectangle1{
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    left: 51px;
+    top: 12px;
+}
+
+.rectangle2{
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    left: 155px;
+    top: 12px;
+}
+
+.mentorFrame{
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    left: 0px;
+    top: 190px;
+
+    background: #EDF1F6;
+    border-radius: 10px;
+}
+
+.studentFrame{
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    left: 210px;
+    top: 190px;
+
+    background: #EDF1F6;
+    border-radius: 10px;
+}
+
+.FrameHover:hover{
+    border: 1px solid #9D9D9D;
+    background: #FFFFFF;
+}
+
+.mentorIcon{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 63px;
+    top: 50px;
+}
+
+.studentIcon{
+    position: absolute;
+    width: 40px;
+    height: 64px;
+    left: 75.16px;
+    top: 43px;
+}
+
+.mentorTXT{
+    position: absolute;
+    width: 140px;
+    height: 26px;
+    left: 25px;
+    top: 124px;
+}
+
+.studentTXT{
+    position: absolute;
+    width: 140px;
+    height: 26px;
+    left: 25px;
+    top: 124px;
+}
+
+.H3-MIFORTE{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+.done{
+    position: absolute;
+    width: 14px;
+    height: 12px;
+    left:  156px;
+    top: 20px;
+}
+
+.doneTick{
+    position: absolute;
+    width: 10px;
+    height: 7px;
+    left: 2px;
+    top: 2px;
+}
