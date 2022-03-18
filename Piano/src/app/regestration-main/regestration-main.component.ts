@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ButtonService } from '../button.service';
 
 @Component({
   selector: 'app-regestration-main',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegestrationMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(public btnService: ButtonService) { }
 
-  ngOnInit(): void {
+  page = 0;
+  pagesOpened:Array<boolean> = [true, false, false];
+  ngOnInit(): void { 
   }
 
+  nextPage(){
+    this.pagesOpened[this.page] = false;
+    this.page++;
+    this.pagesOpened[this.page] = true;
+    this.btnService.turnButtonOff();
+    
+  }
 }

@@ -1,30 +1,3 @@
-<div class="content">
-    <div class="text"><span class="registration  H2-MIFORTE">
-        Регистрация
-    </span></div>
-
-    <div class="steps" >
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" class = "elipse1">
-            <circle cx="14" cy="14" r="12" stroke="#86BAA4" stroke-width="4"/>
-        </svg>
-
-        <svg width="30" height="4" viewBox="0 0 30 4" fill="none" xmlns="http://www.w3.org/2000/svg"  class = "rectangle1">
-            <rect width="30" height="4" rx="2" fill="#EDF1F6"/>
-        </svg>
-
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" class = "elipse2">
-            <circle cx="14" cy="14" r="12" stroke="#EDF1F6" stroke-width="4"/>
-        </svg>
-            
-        <svg width="30" height="4" viewBox="0 0 30 4" fill="none" xmlns="http://www.w3.org/2000/svg" class = "rectangle2">
-            <rect width="30" height="4" rx="2" fill="#EDF1F6"/>
-        </svg>
-           
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"class = "elipse3">
-            <circle cx="14" cy="14" r="12" stroke="#EDF1F6" stroke-width="4"/>
-        </svg>
-    </div>
-
     <div class="mentorFrame FrameHover" (click)="mentorClick()">
         <div class="done">
             <div class="doneTick" [hidden]="!this.isMentor">
@@ -105,12 +78,3 @@
         <span class = "studentTXT H3-MIFORTE">Ученик</span>    
     </div>
 
-    <button [ngClass] = "{inactiveButton : !enoughInfo, activeButton: enoughInfo}" class="btn-sbm-pos" [disabled] = "!enoughInfo">
-        <span class = "txt-buttonMIFORTE enter">
-            Далее
-        </span> 
-    </button>
-
-
-         
-</div>

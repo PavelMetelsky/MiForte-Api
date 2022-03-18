@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ButtonService} from "../button.service"
+import { RegSendService } from '../reg-send.service';
 
 @Component({
   selector: 'app-regestration-role',
@@ -9,8 +11,7 @@ export class RegestrationRoleComponent implements OnInit {
 
   public isStudent = false;
   public isMentor = false;
-  public enoughInfo = false;
-  constructor() { }
+  constructor(private btnService: ButtonService, private reg: RegSendService) { }
 
   ngOnInit(): void {
   }
@@ -18,13 +19,15 @@ export class RegestrationRoleComponent implements OnInit {
   studentClick(){
     this.isStudent = true;
     this.isMentor = false;
-    this.enoughInfo = true;
+    this.btnService.turnButtonOn();
+    this.reg.role = "Student";
   }
 
   mentorClick(){
     this.isStudent = false;
     this.isMentor = true;
-    this.enoughInfo = true;
+    this.btnService.turnButtonOn();
+    this.reg.role = "Mentor";
   }
 
 }
