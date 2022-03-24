@@ -20,6 +20,10 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
                 Username = request.Username,
                 Password = request.Password,
                 UserId = Guid.NewGuid(),
+                Country = request.Country,
+                City = request.City,
+                Telephone = request.Telephone,
+                Role = request.Role
             }, cancellationToken);
 
             await _pianoContext.SaveChangesAsync(cancellationToken);

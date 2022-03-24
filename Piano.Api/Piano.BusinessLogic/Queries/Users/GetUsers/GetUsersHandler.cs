@@ -22,7 +22,12 @@ namespace Piano.BusinessLogic.Queries.Users.GetUsers
                     Username = u.Username,
                     Email = u.Email,
                     Password = u.Password,
-                    UserId = u.UserId
+                    UserId = u.UserId,
+                    Role = u.Role,
+                    City = u.City,
+                    Country = u.Country,
+                    Telephone = u.Telephone
+
                 })
                 .ToListAsync(cancellationToken: cancellationToken);
         }
