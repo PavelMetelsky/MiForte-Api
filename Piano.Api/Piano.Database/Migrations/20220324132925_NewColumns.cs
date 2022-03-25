@@ -8,6 +8,13 @@ namespace Piano.Database.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<int>(
+                name: "Role",
+                table: "Users",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.AddColumn<string>(
                 name: "City",
                 table: "Users",
@@ -21,13 +28,6 @@ namespace Piano.Database.Migrations
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
-
-            migrationBuilder.AddColumn<int>(
-                name: "Role",
-                table: "Users",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
 
             migrationBuilder.AddColumn<string>(
                 name: "Telephone",
@@ -39,16 +39,17 @@ namespace Piano.Database.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+
+            migrationBuilder.DropColumn(
+                name: "Role",
+                table: "Users");
+
             migrationBuilder.DropColumn(
                 name: "City",
                 table: "Users");
 
             migrationBuilder.DropColumn(
                 name: "Country",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "Role",
                 table: "Users");
 
             migrationBuilder.DropColumn(

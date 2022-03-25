@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Piano.Database;
 
@@ -11,9 +12,10 @@ using Piano.Database;
 namespace Piano.Database.Migrations
 {
     [DbContext(typeof(PianoContext))]
-    partial class PianoContextModelSnapshot : ModelSnapshot
+    [Migration("20220325123306_SocialLinks")]
+    partial class SocialLinks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,19 +26,15 @@ namespace Piano.Database.Migrations
 
             modelBuilder.Entity("Piano.Entities.SocialLink", b =>
                 {
-                    b.Property<string>("UserUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserUserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Link")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("UserUserId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("SocialLinks");
                 });
@@ -77,18 +75,6 @@ namespace Piano.Database.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Piano.Entities.SocialLink", b =>
-                {
-                    b.HasOne("Piano.Entities.User", null)
-                        .WithMany("SocialLinks")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Piano.Entities.User", b =>
-                {
-                    b.Navigation("SocialLinks");
                 });
 #pragma warning restore 612, 618
         }

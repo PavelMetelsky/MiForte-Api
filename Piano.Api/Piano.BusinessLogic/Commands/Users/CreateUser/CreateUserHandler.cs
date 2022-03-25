@@ -14,17 +14,16 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
 
         public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-           await _pianoContext.Users.AddAsync(new Entities.User
-            {
-                Email = request.Email,
-                Username = request.Username,
-                Password = request.Password,
-                UserId = Guid.NewGuid(),
-                Country = request.Country,
-                City = request.City,
-                Telephone = request.Telephone,
-                Role = request.Role
-            }, cancellationToken);
+            var ub = new Entities.UserBuilder();
+           await _pianoContext.Users.AddAsync(ub
+               .WithUsername(request.Username)
+               .HasRole(request.Role)
+               .HasEmail(request.Email)
+               .HasPassword(request.Password)
+               .From(request.Country, request.City)
+               .HasTelephoneNumber(request.Telephone)
+               .HasSocialLinks(request.SocialLinks)
+               .GetUser(), cancellationToken);
 
             await _pianoContext.SaveChangesAsync(cancellationToken);
 
