@@ -12,8 +12,8 @@ using Piano.Database;
 namespace Piano.Database.Migrations
 {
     [DbContext(typeof(PianoContext))]
-    [Migration("20220325131814_ChangedSocialLinksTypes")]
-    partial class ChangedSocialLinksTypes
+    [Migration("20220327114947_SocialLinksKeyChanged")]
+    partial class SocialLinksKeyChanged
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,19 +26,15 @@ namespace Piano.Database.Migrations
 
             modelBuilder.Entity("Piano.Entities.SocialLink", b =>
                 {
-                    b.Property<string>("UserUserId")
+                    b.Property<string>("Link")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Link")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("UserUserId");
+                    b.HasKey("Link");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserUserId");
 
                     b.ToTable("SocialLinks");
                 });
@@ -85,7 +81,9 @@ namespace Piano.Database.Migrations
                 {
                     b.HasOne("Piano.Entities.User", null)
                         .WithMany("SocialLinks")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Piano.Entities.User", b =>
