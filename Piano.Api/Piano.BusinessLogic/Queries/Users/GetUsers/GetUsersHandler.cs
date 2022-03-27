@@ -26,8 +26,8 @@ namespace Piano.BusinessLogic.Queries.Users.GetUsers
                     Role = u.Role,
                     City = u.City,
                     Country = u.Country,
-                    Telephone = u.Telephone
-
+                    Telephone = u.Telephone,
+                    SocialLinks = u.SocialLinks.Select(u => u.Link).ToList()
                 })
                 .ToListAsync(cancellationToken: cancellationToken);
         }
