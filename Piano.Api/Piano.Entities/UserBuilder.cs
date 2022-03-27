@@ -63,7 +63,7 @@ namespace Piano.Entities
                 {
                     Link = link,
                     User = _user,
-                    UserUserId = _user.UserId.ToString()
+                    UserUserId = _user.UserId
                 });
             }
             return this;

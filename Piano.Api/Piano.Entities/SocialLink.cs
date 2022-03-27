@@ -10,9 +10,8 @@ namespace Piano.Entities
 {
     public class SocialLink
     {
+        public Guid UserUserId { get; set; }
         [Key]
-        public string UserUserId { get; set; }
-        
         public string Link { get; set; }
         public User User; 
     }
