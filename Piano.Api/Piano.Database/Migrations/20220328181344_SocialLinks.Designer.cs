@@ -12,8 +12,8 @@ using Piano.Database;
 namespace Piano.Database.Migrations
 {
     [DbContext(typeof(PianoContext))]
-    [Migration("20220327114947_SocialLinksKeyChanged")]
-    partial class SocialLinksKeyChanged
+    [Migration("20220328181344_SocialLinks")]
+    partial class SocialLinks
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,15 +26,22 @@ namespace Piano.Database.Migrations
 
             modelBuilder.Entity("Piano.Entities.SocialLink", b =>
                 {
-                    b.Property<string>("Link")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("UserUserId")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Link");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UserUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("SocialLinks");
                 });
@@ -81,7 +88,7 @@ namespace Piano.Database.Migrations
                 {
                     b.HasOne("Piano.Entities.User", null)
                         .WithMany("SocialLinks")
-                        .HasForeignKey("UserUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

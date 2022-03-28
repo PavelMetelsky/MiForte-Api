@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Piano.Entities
+﻿namespace Piano.Entities
 {
     public class UserBuilder
     {
@@ -55,15 +49,13 @@ namespace Piano.Entities
 
         public UserBuilder HasSocialLinks(List<string> socialLinks)
         {
-            
             _user.SocialLinks = new List<SocialLink>();
             foreach (var link in socialLinks)
             {
                 _user.SocialLinks.Add(new SocialLink
                 {
                     Link = link,
-                    User = _user,
-                    UserUserId = _user.UserId
+                    UserId = _user.UserId
                 });
             }
             return this;
