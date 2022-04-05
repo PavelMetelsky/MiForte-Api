@@ -1,13 +1,17 @@
 export class ButtonService {
-  buttonOn = false;
-  constructor() { }
 
-  turnButtonOn(){
+  public buttonOn = false;
+
+  public turnButtonOn(){
     this.buttonOn = true;
   }
 
-  turnButtonOff(){
+  public turnButtonOff(){
     this.buttonOn = false;
+  }
+
+  public switchButton(value:boolean){
+    this.buttonOn = value;
   }
 
 }

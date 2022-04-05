@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ButtonService } from '../button.service';
-import {FormValidationService} from '../form-validation.service'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-regestration-data',
@@ -10,23 +8,18 @@ import {FormValidationService} from '../form-validation.service'
 })
 export class RegestrationDataComponent implements OnInit {
 
-  constructor(private button: ButtonService, private formService: FormValidationService) { }
-
-  form: FormGroup;
-  valid: boolean = false;
-
-  submited(){
-    this.button.turnButtonOn();
-  }
+  @Output() validEvent = new EventEmitter<boolean>(true);
+  public form: FormGroup;
 
   ngOnInit(): void {
+    
     this.form = new FormGroup({
       country: new FormControl('', [Validators.required]),
       town: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required])
     })
-    
   }
+
 
 
 }

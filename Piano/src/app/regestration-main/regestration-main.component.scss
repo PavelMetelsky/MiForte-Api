@@ -64,7 +64,6 @@
     height: 28px;
     left: 79px;
     top: 78px;
-
 }
 
 .elipse1{
@@ -73,6 +72,21 @@
     height: 24px;
     left: 2px;
     top: 2px;
+}
+
+.elipse-passed{
+    fill: #86BAA4;
+    stroke-width:4;
+    stroke: #86BAA4;
+}
+
+.elipse-current{
+    stroke-width:4;
+    stroke: #86BAA4;
+}
+.elipse-inactive{
+    stroke-width:4;
+    stroke: #EDF1F6;
 }
 
 .elipse2{
@@ -91,19 +105,6 @@
     top: 2px;
 }
 
-.inactiveElipse{
-    border: 4px solid #EDF1F6;
-}
-
-.inactiveRectangle{
-    background: #EDF1F6;
-    border-radius: 2px;
-}
-
-.curentElipse{
-    border: 4px solid #86BAA4;
-}
-
 .rectangle1{
     position: absolute;
     width: 30px;
@@ -118,6 +119,14 @@
     height: 4px;
     left: 155px;
     top: 12px;
+}
+
+.rectangle-active{
+    fill: #86BAA4;
+}
+
+.rectangle-inactive{
+    fill: #EDF1F6;
 }
 
 .btn-sbm-pos{
