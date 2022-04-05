@@ -11,9 +11,10 @@ import { ButtonService } from './button.service';
 import {RegSendService} from './reg-send.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegestrationLoginComponent } from './regestration-login/regestration-login.component';
+import { RegestrationFinalComponent } from './regestration-final/regestration-final.component';
 
 @NgModule({
-  declarations: [AppComponent, RegestrationMainComponent, RegestrationRoleComponent, RegestrationDataComponent, RegestrationLoginComponent],
+  declarations: [AppComponent, RegestrationMainComponent, RegestrationRoleComponent, RegestrationDataComponent, RegestrationLoginComponent, RegestrationFinalComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [ButtonService, RegSendService],
   bootstrap: [AppComponent],

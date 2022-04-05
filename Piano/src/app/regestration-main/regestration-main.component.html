@@ -27,9 +27,10 @@
         </svg>
     </div>
 
-    <app-regestration-role [hidden] = "!pagesOpened[0]"></app-regestration-role>
-    <app-regestration-data (validEvent) = 'this.btnService.switchButton($event)' [hidden] = "!pagesOpened[1]"></app-regestration-data>
-    
+    <app-regestration-role [hidden] = "this.page != 0"></app-regestration-role>
+    <app-regestration-data (validEvent) = 'this.btnService.switchButton($event)' [hidden] = "this.page != 1"></app-regestration-data>
+    <app-regestration-final [hidden] = "this.page != 2"></app-regestration-final>
+
     <button (click)="nextPage()" 
     [ngClass] = "{inactiveButton: !this.btnService.buttonOn, activeButton: this.btnService.buttonOn}"
      class="btn-sbm-pos" 
