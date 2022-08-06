@@ -112,7 +112,6 @@
       }
     }
   },
-  "defaultProject": "Piano",
   "cli": {
     "analytics": false
   }

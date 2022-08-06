@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormGroupName, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-regestration-data',
@@ -9,14 +9,14 @@ import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/form
 export class RegestrationDataComponent implements OnInit {
 
   @Output() validEvent = new EventEmitter<boolean>(true);
-  public form: FormGroup;
+  public form: UntypedFormGroup;
 
   ngOnInit(): void {
     
-    this.form = new FormGroup({
-      country: new FormControl('', [Validators.required]),
-      town: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required])
+    this.form = new UntypedFormGroup({
+      country: new UntypedFormControl('', [Validators.required]),
+      town: new UntypedFormControl('', [Validators.required]),
+      phone: new UntypedFormControl('', [Validators.required])
     })
   }
 
