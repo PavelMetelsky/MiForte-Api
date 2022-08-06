@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class ButtonService {\n  constructor() {\n    this.buttonOn = false;\n  }\n\n  turnButtonOn() {\n    this.buttonOn = true;\n  }\n\n  turnButtonOff() {\n    this.buttonOn = false;\n  }\n\n  switchButton(value) {\n    this.buttonOn = value;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

@@ -444,3 +444,4 @@ testem.log
 .DS_Store
 Thumbs.db
 *.html
+Piano/.angular

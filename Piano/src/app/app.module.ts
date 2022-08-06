@@ -9,10 +9,10 @@ import { RegestrationRoleComponent } from './regestration-role/regestration-role
 import { RegestrationDataComponent } from './regestration-data/regestration-data.component';
 import { ButtonService } from './button.service';
 import { RegSendService } from './reg-send.service';
-import { RegestrationLoginComponent } from './regestration-login/regestration-login.component';
 import { RegestrationFinalComponent } from './regestration-final/regestration-final.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
+import { StorageService } from './storage.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { MainPageComponent } from './main-page/main-page.component';
     RegestrationMainComponent,
     RegestrationRoleComponent,
     RegestrationDataComponent,
-    RegestrationLoginComponent,
     RegestrationFinalComponent,
     MainPageComponent,
   ],
@@ -31,7 +30,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [ButtonService, RegSendService],
+  providers: [StorageService, ButtonService, RegSendService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
