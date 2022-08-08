@@ -4,9 +4,20 @@ import { AccountComponent } from './account.component';
 import { AccountRoutingModule } from './account.routing';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
+import { RoleStepComponent } from './sign-up/role-step/role-step.component';
+import { ProfileStepComponent } from './sign-up/profile-step/profile-step.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { PhoneStepComponent } from './sign-up/phone-step/phone-step.component';
 
 @NgModule({
   imports: [CommonModule, AccountRoutingModule, SharedModule],
-  declarations: [AccountComponent, LoginComponent],
+  declarations: [
+    AccountComponent,
+    LoginComponent,
+    RoleStepComponent,
+    ProfileStepComponent,
+    SignUpComponent,
+    PhoneStepComponent,
+  ],
 })
 export class AccountModule {}
