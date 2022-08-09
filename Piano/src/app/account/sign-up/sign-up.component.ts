@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
 @Component({
   selector: 'p-sign-up',
   templateUrl: './sign-up.component.html',

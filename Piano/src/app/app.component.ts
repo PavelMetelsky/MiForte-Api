@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { BuildCheckerService } from './shared/base/build-checker.service';
 import { StateParamsService } from './shared/base/state-params.service';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,12 @@ import { StateParamsService } from './shared/base/state-params.service';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     router: Router,
     stateParams: StateParamsService,
-    buildChecker: BuildCheckerService
+    buildChecker: BuildCheckerService,
+    private primengConfig: PrimeNGConfig
   ) {
     router.events
       .pipe(filter((e) => e instanceof NavigationEnd))
@@ -27,6 +29,10 @@ export class AppComponent {
         }
         stateParams.onUrlChanged();
       });
+  }
+
+  public ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
   private static pageViewAnalyticsEvent(url: string): void {
