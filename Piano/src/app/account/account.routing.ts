@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account.component';
 import { LoginComponent } from './login/login.component';
+import { ConfirmationStepComponent } from './sign-up/confirmation-step/confirmation-step.component';
+import { PhoneStepComponent } from './sign-up/phone-step/phone-step.component';
+import { ProfileStepComponent } from './sign-up/profile-step/profile-step.component';
+import { RoleStepComponent } from './sign-up/role-step/role-step.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
@@ -17,6 +21,13 @@ const routes: Routes = [
       {
         path: 'signup',
         component: SignUpComponent,
+        children: [
+          { path: '', redirectTo: 'role', pathMatch: 'full' },
+          { path: 'role', component: RoleStepComponent },
+          { path: 'phone', component: PhoneStepComponent },
+          { path: 'profile', component: ProfileStepComponent },
+          { path: 'confirmation', component: ConfirmationStepComponent },
+        ],
       },
     ],
   },

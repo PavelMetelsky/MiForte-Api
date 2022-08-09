@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TicketService } from '../ticketservice';
 
 @Component({
   selector: 'p-role-step',
@@ -6,21 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./role-step.component.scss'],
 })
 export class RoleStepComponent implements OnInit {
-  public isStudent = false;
-  public isMentor = false;
-  constructor() {}
+  personalInformation: any;
 
-  ngOnInit(): void {}
+  submitted: boolean = false;
 
-  studentClick() {
-    this.isStudent = true;
-    this.isMentor = false;
-    // this.reg.role = 'Student';
+  constructor(public ticketService: TicketService, private router: Router) {}
+
+  ngOnInit() {
+    this.personalInformation =
+      this.ticketService.getTicketInformation().personalInformation;
   }
 
-  mentorClick() {
-    this.isStudent = false;
-    this.isMentor = true;
-    // this.reg.role = 'Mentor';
+  nextPage() {
+    if (
+      this.personalInformation.firstname &&
+      this.personalInformation.lastname &&
+      this.personalInformation.age
+    ) {
+      this.ticketService.ticketInformation.personalInformation =
+        this.personalInformation;
+
+      console.log('sdfdf');
+      this.router.navigate(['account', 'signup', 'phone']);
+
+      return;
+    }
+
+    this.submitted = true;
   }
 }

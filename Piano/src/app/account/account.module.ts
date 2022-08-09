@@ -9,16 +9,27 @@ import { ProfileStepComponent } from './sign-up/profile-step/profile-step.compon
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PhoneStepComponent } from './sign-up/phone-step/phone-step.component';
 import { PrimengModule } from '../shared/primeng.module';
+import { ConfirmationStepComponent } from './sign-up/confirmation-step/confirmation-step.component';
+import { TicketService } from './sign-up/ticketservice';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, AccountRoutingModule, SharedModule, PrimengModule],
+  imports: [
+    CommonModule,
+    AccountRoutingModule,
+    SharedModule,
+    PrimengModule,
+    FormsModule,
+  ],
   declarations: [
     AccountComponent,
     LoginComponent,
     RoleStepComponent,
-    ProfileStepComponent,
-    SignUpComponent,
     PhoneStepComponent,
+    ProfileStepComponent,
+    ConfirmationStepComponent,
+    SignUpComponent,
   ],
+  providers: [TicketService],
 })
 export class AccountModule {}

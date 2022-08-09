@@ -1,8 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MenuItem, MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
+import { TicketService } from './ticketservice';
 @Component({
   selector: 'p-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
+  providers: [MessageService],
   encapsulation: ViewEncapsulation.None,
 })
 export class SignUpComponent {
@@ -18,15 +22,54 @@ export class SignUpComponent {
     termsAndConditionsAccepted: false,
   };
 
-  constructor() {}
+  items: MenuItem[];
 
-  public acceptForm(isValid: boolean): void {
-    console.log(isValid);
+  subscription: Subscription;
+
+  constructor(
+    public messageService: MessageService,
+    public ticketService: TicketService
+  ) {}
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Role',
+        routerLink: 'role',
+      },
+      {
+        label: 'Phone',
+        routerLink: 'phone',
+      },
+      {
+        label: 'Profile',
+        routerLink: 'profile',
+      },
+      {
+        label: 'Confirmation',
+        routerLink: 'confirmation',
+      },
+    ];
+
+    this.subscription = this.ticketService.paymentComplete$.subscribe(
+      (personalInformation) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Order submitted',
+          detail:
+            'Dear, ' +
+            personalInformation.firstname +
+            ' ' +
+            personalInformation.lastname +
+            ' your order completed.',
+        });
+      }
+    );
   }
 
-  public nextPage(): void {
-    this.pagesOpened[this.page] = false;
-    this.page++;
-    this.pagesOpened[this.page] = true;
+  public ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
