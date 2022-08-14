@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigateService } from 'src/app/shared/base/navigate.service';
 import { TicketService } from '../ticketservice';
 
 @Component({
@@ -8,19 +9,24 @@ import { TicketService } from '../ticketservice';
   styleUrls: ['./confirmation-step.component.scss'],
 })
 export class ConfirmationStepComponent implements OnInit {
-  ticketInformation: any;
+  public ticketInformation: any;
 
-  constructor(public ticketService: TicketService, private router: Router) {}
+  constructor(
+    public ticketService: TicketService,
+    private navigate: NavigateService
+  ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.ticketInformation = this.ticketService.ticketInformation;
   }
 
-  complete() {
+  public complete(): void {
     this.ticketService.complete();
+
+    console.log(this.ticketService.ticketInformation);
   }
 
-  prevPage() {
-    this.router.navigate(['account/signup/profile']);
+  public prevPage(): void {
+    this.navigate.toSignupProfile();
   }
 }

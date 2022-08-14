@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { NavigateService } from 'src/app/shared/base/navigate.service';
 import { TicketService } from '../ticketservice';
 
 @Component({
@@ -8,22 +9,54 @@ import { TicketService } from '../ticketservice';
   styleUrls: ['./profile-step.component.scss'],
 })
 export class ProfileStepComponent implements OnInit {
-  paymentInformation: any;
+  public paymentInformation: any;
+  productForm: FormGroup;
 
-  constructor(public ticketService: TicketService, private router: Router) {}
+  constructor(
+    public ticketService: TicketService,
+    private fb: FormBuilder,
+    private navigate: NavigateService
+  ) {
+    this.productForm = this.fb.group({
+      quantities: this.fb.array([]),
+    });
+  }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.paymentInformation =
       this.ticketService.ticketInformation.paymentInformation;
   }
 
-  nextPage() {
-    this.ticketService.ticketInformation.paymentInformation =
-      this.paymentInformation;
-    this.router.navigate(['account/signup/confirmation']);
+  quantities(): FormArray {
+    return this.productForm.get('quantities') as FormArray;
   }
 
-  prevPage() {
-    this.router.navigate(['account/signup/phone']);
+  newQuantity(): FormGroup {
+    return this.fb.group({
+      link: '',
+    });
+  }
+
+  addQuantity() {
+    //this.quantities().push({ link: new FormControl('') });
+    this.quantities().push(this.newQuantity());
+  }
+
+  removeQuantity(i: number) {
+    this.quantities().removeAt(i);
+  }
+
+  onSubmit() {
+    console.log(this.productForm.value);
+  }
+
+  public nextPage(): void {
+    this.ticketService.ticketInformation.paymentInformation =
+      this.paymentInformation;
+    this.navigate.toSignupConfirmation();
+  }
+
+  public prevPage(): void {
+    this.navigate.toSignupPhone();
   }
 }

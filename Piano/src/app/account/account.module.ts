@@ -11,15 +11,18 @@ import { PhoneStepComponent } from './sign-up/phone-step/phone-step.component';
 import { PrimengModule } from '../shared/primeng.module';
 import { ConfirmationStepComponent } from './sign-up/confirmation-step/confirmation-step.component';
 import { TicketService } from './sign-up/ticketservice';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     AccountRoutingModule,
+    FlexLayoutModule,
     SharedModule,
     PrimengModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AccountComponent,

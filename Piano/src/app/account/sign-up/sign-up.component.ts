@@ -10,8 +10,6 @@ import { TicketService } from './ticketservice';
   encapsulation: ViewEncapsulation.None,
 })
 export class SignUpComponent {
-  public page = 0;
-  public pagesOpened: Array<boolean> = [true, false, false];
   public model: ISignUpModel = {
     email: '',
     confirmEmail: '',
@@ -22,16 +20,16 @@ export class SignUpComponent {
     termsAndConditionsAccepted: false,
   };
 
-  items: MenuItem[];
+  public items: MenuItem[];
 
-  subscription: Subscription;
+  public subscription: Subscription;
 
   constructor(
     public messageService: MessageService,
     public ticketService: TicketService
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.items = [
       {
         label: 'Role',

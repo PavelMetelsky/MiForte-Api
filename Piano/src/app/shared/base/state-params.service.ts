@@ -92,8 +92,6 @@ export class StateParamsService {
   public onUrlChanged(): void {
     const state = this.stateUrlSubject.value;
 
-    console.log(state);
-
     const previous = this.stateUrlSubject.value
       ? this.stateUrlSubject.value.current
       : null;

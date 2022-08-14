@@ -95,16 +95,24 @@ export class NavigateService {
   //   }
   // }
 
-  public toMaintenance(): void {
-    this.router.navigate(['/maintenance']);
-  }
-
   public toUserAudit(userId: string): void {
     this.router.navigate(['admin', 'users', 'audit', userId]);
   }
 
-  public toCompanyManagement(): void {
-    this.router.navigate(['admin', 'companies']);
+  public toSignupRole(): void {
+    this.router.navigate(['account/signup/role']);
+  }
+
+  public toSignupPhone(): void {
+    this.router.navigate(['account/signup/phone']);
+  }
+
+  public toSignupProfile(): void {
+    this.router.navigate(['account/signup/profile']);
+  }
+
+  public toSignupConfirmation(): void {
+    this.router.navigate(['account/signup/confirmation']);
   }
 
   // public toMap(params: IStateParams): void {

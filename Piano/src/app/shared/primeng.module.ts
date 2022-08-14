@@ -10,7 +10,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ToastModule } from 'primeng/toast';
-
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { PasswordModule } from 'primeng/password';
 @NgModule({
   imports: [CommonModule],
   exports: [
@@ -23,6 +24,9 @@ import { ToastModule } from 'primeng/toast';
     InputMaskModule,
     CheckboxModule,
     ToastModule,
+    SelectButtonModule,
+    InputMaskModule,
+    PasswordModule,
   ],
   declarations: [],
 })

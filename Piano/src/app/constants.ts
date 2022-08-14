@@ -4,9 +4,8 @@ import { values } from 'lodash';
 import { environment } from '../environments/environment';
 
 export const ROLES: { [key: string]: Role } = {
-  admin: 0,
-  student: 1,
-  mentor: 2,
+  MENTOR: 0,
+  STUDENT: 1,
 };
 
 /* eslint-disable max-lines */

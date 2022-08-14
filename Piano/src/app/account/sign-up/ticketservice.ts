@@ -5,21 +5,19 @@ import { Subject } from 'rxjs';
 export class TicketService {
   public ticketInformation = {
     personalInformation: {
-      firstname: '',
-      lastname: '',
-      age: null,
+      role: null,
     },
     seatInformation: {
-      class: null,
-      wagon: null,
-      seat: null,
+      country: '',
+      city: '',
+      phone: '',
     },
     paymentInformation: {
-      cardholderName: '',
-      cardholderNumber: '',
-      date: '',
-      cvv: '',
-      remember: false,
+      fullName: '',
+      login: '',
+      password: '',
+      confirm: '',
+      links: '',
     },
   };
 
