@@ -13,6 +13,7 @@ import { ConfirmationStepComponent } from './sign-up/confirmation-step/confirmat
 import { TicketService } from './sign-up/ticketservice';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FinishComponent } from './sign-up/finish/finish.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ProfileStepComponent,
     ConfirmationStepComponent,
     SignUpComponent,
+    FinishComponent,
   ],
   providers: [TicketService],
 })

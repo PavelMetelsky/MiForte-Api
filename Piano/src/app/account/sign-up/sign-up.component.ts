@@ -47,6 +47,10 @@ export class SignUpComponent {
         label: 'Confirmation',
         routerLink: 'confirmation',
       },
+      {
+        label: 'Finish',
+        routerLink: 'finish',
+      },
     ];
 
     this.subscription = this.ticketService.paymentComplete$.subscribe(

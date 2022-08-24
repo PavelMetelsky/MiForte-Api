@@ -2,81 +2,45 @@
   <p-card>
     <ng-template pTemplate="content">
       <div class="field col-12">
-        <label for="class">Name</label>
+        <label for="class">role</label>
         <b>{{
-          ticketInformation.personalInformation.firstname
-          ? ticketInformation.personalInformation.firstname
-          : '-'
-          }}
-          {{
-          ticketInformation.personalInformation.lastname
-          ? ticketInformation.personalInformation.lastname
-          : '-'
+          ticketInformation.personalInformation?.role
           }}</b>
       </div>
       <div class="field col-12">
-        <label for="Age">Age</label>
+        <label for="class">country</label>
         <b>{{
-          ticketInformation.personalInformation.age
-          ? ticketInformation.personalInformation.age
-          : '-'
+          ticketInformation.seatInformation?.country
           }}</b>
       </div>
       <div class="field col-12">
-        <label for="Age">Seat Class</label>
+        <label for="class">city</label>
         <b>{{
-          ticketInformation.seatInformation.class
-          ? ticketInformation.seatInformation.class.name
-          : '-'
+          ticketInformation.seatInformation?.city
           }}</b>
       </div>
       <div class="field col-12">
-        <label for="Age">Wagon Number</label>
+        <label for="class">phone</label>
         <b>{{
-          ticketInformation.seatInformation.wagon
-          ? ticketInformation.seatInformation.wagon.wagon
-          : '-'
+          ticketInformation.seatInformation?.phone
           }}</b>
       </div>
       <div class="field col-12">
-        <label for="Age">Seat</label>
+        <label for="class">fullName</label>
         <b>{{
-          ticketInformation.seatInformation.seat
-          ? ticketInformation.seatInformation.seat.seat
-          : '-'
+          ticketInformation.paymentInformation?.fullName
           }}</b>
       </div>
       <div class="field col-12">
-        <label for="Age">Cardholder Name</label>
+        <label for="class">login</label>
         <b>{{
-          ticketInformation.paymentInformation.cardholderName
-          ? ticketInformation.paymentInformation.cardholderName
-          : '-'
+          ticketInformation.paymentInformation?.login
           }}</b>
       </div>
       <div class="field col-12">
-        <label for="Age">Card Number</label>
+        <label for="class">links</label>
         <b>{{
-          ticketInformation.paymentInformation.cardholderNumber
-          ? ticketInformation.paymentInformation.cardholderNumber
-          : '-'
-          }}</b>
-      </div>
-      <div class="field col-12">
-        <label for="Age">Date</label>
-        <b>{{
-          ticketInformation.paymentInformation.date
-          ? ticketInformation.paymentInformation.date
-          : '-'
-          }}</b>
-      </div>
-      <div class="field col-12">
-        <label for="Age">CVV</label>
-        <b>{{
-          ticketInformation.paymentInformation.cvv &&
-          ticketInformation.paymentInformation.cvv.length === 3
-          ? '**' + ticketInformation.paymentInformation.cvv[2]
-          : '-'
+          ticketInformation.paymentInformation?.links
           }}</b>
       </div>
     </ng-template>

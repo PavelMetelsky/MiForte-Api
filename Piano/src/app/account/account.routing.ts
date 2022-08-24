@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account.component';
 import { LoginComponent } from './login/login.component';
 import { ConfirmationStepComponent } from './sign-up/confirmation-step/confirmation-step.component';
+import { FinishComponent } from './sign-up/finish/finish.component';
 import { PhoneStepComponent } from './sign-up/phone-step/phone-step.component';
 import { ProfileStepComponent } from './sign-up/profile-step/profile-step.component';
 import { RoleStepComponent } from './sign-up/role-step/role-step.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
           { path: 'phone', component: PhoneStepComponent },
           { path: 'profile', component: ProfileStepComponent },
           { path: 'confirmation', component: ConfirmationStepComponent },
+          { path: 'finish', component: FinishComponent },
         ],
       },
     ],

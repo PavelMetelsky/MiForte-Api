@@ -16,16 +16,16 @@
             " class="p-error">Country is required.</small>
         </div>
         <div class="field">
-          <label for="sity">Sity</label>
-          <input #sity="ngModel" id="sity" type="text" required pInputText [(ngModel)]="seatInformation.sity" [ngClass]="{
+          <label for="city">city</label>
+          <input #city="ngModel" id="city" type="text" required pInputText [(ngModel)]="seatInformation.city" [ngClass]="{
               'ng-dirty':
-                (sity.invalid && submitted) ||
-                (sity.dirty && sity.invalid)
+                (city.invalid && submitted) ||
+                (city.dirty && city.invalid)
             }" />
           <small *ngIf="
-              (sity.invalid && submitted) ||
-              (sity.dirty && sity.invalid)
-            " class="p-error">Sity is required.</small>
+              (city.invalid && submitted) ||
+              (city.dirty && city.invalid)
+            " class="p-error">city is required.</small>
         </div>
         <div class="field">
           <label for="phone">Phone</label>

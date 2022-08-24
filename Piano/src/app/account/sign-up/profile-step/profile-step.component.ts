@@ -51,6 +51,7 @@ export class ProfileStepComponent implements OnInit {
   }
 
   public nextPage(): void {
+    console.log(this.productForm.value);
     this.ticketService.ticketInformation.paymentInformation =
       this.paymentInformation;
     this.navigate.toSignupConfirmation();
