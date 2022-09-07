@@ -99,6 +99,10 @@ export class NavigateService {
     this.router.navigate(['admin', 'users', 'audit', userId]);
   }
 
+  public toSignup(): void {
+    this.router.navigate(['account/signup']);
+  }
+
   public toSignupRole(): void {
     this.router.navigate(['account/signup/role']);
   }
@@ -113,6 +117,10 @@ export class NavigateService {
 
   public toSignupConfirmation(): void {
     this.router.navigate(['account/signup/confirmation']);
+  }
+
+  public toFinish(): void {
+    this.router.navigate(['account/signup/finish']);
   }
 
   // public toMap(params: IStateParams): void {

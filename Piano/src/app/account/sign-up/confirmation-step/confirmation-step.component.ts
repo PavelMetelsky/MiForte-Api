@@ -24,6 +24,8 @@ export class ConfirmationStepComponent implements OnInit {
     this.ticketService.complete();
 
     console.log(this.ticketService.ticketInformation);
+
+    this.navigate.toFinish();
   }
 
   public prevPage(): void {
