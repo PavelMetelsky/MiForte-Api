@@ -18,12 +18,12 @@ import { FinishComponent } from './sign-up/finish/finish.component';
 @NgModule({
   imports: [
     CommonModule,
-    AccountRoutingModule,
     FlexLayoutModule,
     SharedModule,
     PrimengModule,
     FormsModule,
     ReactiveFormsModule,
+    AccountRoutingModule,
   ],
   declarations: [
     AccountComponent,
