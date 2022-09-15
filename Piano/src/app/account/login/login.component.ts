@@ -27,7 +27,7 @@ export class LoginComponent {
     this.userService.login(this.model).subscribe((data: any) => {
       if (data.flag) {
         //console.log('successful');
-        this.storageService.setItem('userModel', this.model);
+        this.storageService.setItem('userId', data.flag);
         this.navigate.toUserProfile();
       } else {
         console.log('error');

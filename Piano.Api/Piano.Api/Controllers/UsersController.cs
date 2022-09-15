@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Piano.BusinessLogic.Commands.Users.CreateUser;
 using Piano.BusinessLogic.Models;
+using Piano.BusinessLogic.Queries.Users.GetUserDetails;
 using Piano.BusinessLogic.Queries.Users.GetUsers;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,11 +27,10 @@ namespace Piano.Api.Controllers
             return await _mediator.Send(new GetUsersQuery());
         }
 
-        // GET api/<UsersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserDetails(string userId)
         {
-            return "value";
+            return Ok(await _mediator.Send(new GetUserDetailsQuery { UserId = userId }));
         }
 
         [HttpPost]

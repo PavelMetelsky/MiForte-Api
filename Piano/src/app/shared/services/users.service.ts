@@ -13,6 +13,10 @@ export class UsersService {
     return this.http.get<any>(URLS.USERS);
   }
 
+  public getUser(userId: string): Observable<IUserDetails> {
+    return this.http.get<IUserDetails>(URLS.USER(userId));
+  }
+
   public saveUser(userModel: IUserDetails): Observable<void> {
     return this.http.post<void>(URLS.SAVE_USER, userModel);
   }

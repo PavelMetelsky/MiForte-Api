@@ -1,22 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigateService } from 'src/app/shared/base/navigate.service';
+import { UsersService } from 'src/app/shared/services/users.service';
 import { StorageService } from 'src/app/storage.service';
-
-interface IIUserDetailsToDelete {
-  crmLink: string;
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  requestedCompanyName: string;
-  totalSearches: number;
-  totalSearchesEver: number;
-  status: number;
-  isAdmin: boolean;
-  isPrimary: boolean;
-  mailingList: boolean;
-}
 
 @Component({
   selector: 'p-profile',
@@ -24,23 +9,19 @@ interface IIUserDetailsToDelete {
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  public userModel: IIUserDetailsToDelete;
-  public accessLevelDisplay: string;
-
-  public serverValidationFailed: boolean;
-  public serverErrors: any;
-  public submitted = false;
-  public passwordLastUpdate: string;
-  public isActiveUser = false;
-
-  public a: any;
+  public userModel: IUserDetails;
 
   constructor(
     private storageService: StorageService,
-    private navigate: NavigateService
+    private navigate: NavigateService,
+    private usersService: UsersService
   ) {
-    this.a = this.storageService.getItem('userModel');
-    console.log(this.a.email);
+    this.usersService
+      .getUser(this.storageService.getItem('userId'))
+      .subscribe((user) => {
+        this.userModel = user;
+        console.log(user);
+      });
   }
 
   public onMainPage(): void {
