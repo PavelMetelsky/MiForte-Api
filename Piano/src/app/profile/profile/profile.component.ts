@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigateService } from 'src/app/shared/base/navigate.service';
+import { StorageService } from 'src/app/storage.service';
 
 interface IUserDetails {
   crmLink: string;
@@ -21,7 +23,7 @@ interface IUserDetails {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   public userModel: IUserDetails;
   public accessLevelDisplay: string;
 
@@ -30,7 +32,18 @@ export class ProfileComponent implements OnInit {
   public submitted = false;
   public passwordLastUpdate: string;
   public isActiveUser = false;
-  constructor() {}
 
-  ngOnInit(): void {}
+  public a: any;
+
+  constructor(
+    private storageService: StorageService,
+    private navigate: NavigateService
+  ) {
+    this.a = this.storageService.getItem('userModel');
+    console.log(this.a.email);
+  }
+
+  public onMainPage(): void {
+    this.navigate.toHomePage();
+  }
 }

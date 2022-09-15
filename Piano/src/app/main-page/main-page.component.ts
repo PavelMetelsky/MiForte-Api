@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NavigateService } from '../shared/base/navigate.service';
 
 @Component({
   selector: 'p-main-page',
@@ -16,7 +17,7 @@ export class MainPageComponent implements OnInit {
     params: new HttpParams(),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private navigate: NavigateService) {}
 
   public ngOnInit(): void {
     this.getUsers().subscribe((data: any) => {
@@ -35,5 +36,9 @@ export class MainPageComponent implements OnInit {
     return new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
     });
+  }
+
+  public toUserProfile(): void {
+    this.navigate.toUserProfile();
   }
 }

@@ -95,8 +95,8 @@ export class NavigateService {
   //   }
   // }
 
-  public toUserAudit(userId: string): void {
-    this.router.navigate(['admin', 'users', 'audit', userId]);
+  public toUserProfile(): void {
+    this.router.navigate(['profile/user']);
   }
 
   public toSignup(): void {

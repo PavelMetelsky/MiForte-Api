@@ -4,6 +4,12 @@
       <span class="title">
         My Profile
       </span>
+      <span class="title">
+        Login
+      </span>
+      <span class="title">
+        {{a.email}}
+      </span>
     </div>
     <div fxFlex="1 1 auto" fxFill class="panel-body">
       <span #top></span>
@@ -19,16 +25,6 @@
                 </span>
               </div>
               <div class="panel-body">
-                <span class="alert-error" *ngIf="profileForm.invalid && submitted">
-                  <span *ngIf="hasErrors(profileForm, 'required')" translate>PLEASE_POPULATE_THE_REQUIRED_FIELDS</span>
-                  <span *ngIf="hasErrors(profileForm, 'pattern', 'minlength', 'maxlength')"
-                    translate>PLEASE_ENTER_CORRECT_DATA</span>
-                </span>
-                <span class="alert-error" *ngIf="serverValidationFailed">
-                  <span *ngFor="let error of serverErrors">
-                    {{error}}
-                  </span>
-                </span>
                 <form [ngClass]="{'read': isRead, 'edit': isEdit, 'submitted': submitted}" #profileForm="ngForm">
 
                   <ng-template #emailDisplayTemplate>
@@ -115,5 +111,8 @@
         </div>
       </div>
     </div>
+
+    <p-button label="Go to main page" (onClick)="onMainPage()" icon="pi pi-angle-left"></p-button>
+
   </div>
 </div>

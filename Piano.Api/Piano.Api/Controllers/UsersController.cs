@@ -33,13 +33,19 @@ namespace Piano.Api.Controllers
             return "value";
         }
 
-        // POST api/<UsersController>
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] CreateUserCommand command)
         {
             await _mediator.Send(command);
 
             return Ok();
+        }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginCommand command)
+        {
+            return Ok(await _mediator.Send(command));
         }
 
         // PUT api/<UsersController>/5

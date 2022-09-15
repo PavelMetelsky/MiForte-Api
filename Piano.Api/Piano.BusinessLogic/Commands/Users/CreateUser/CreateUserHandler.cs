@@ -21,7 +21,7 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
                 .HasEmail(request.Email)
                 .HasPassword(request.Password)
                 .From("request.Country", "request.City")
-                .HasTelephoneNumber("request.Telephone")
+                 .HasTelephoneNumber("request.Telephone")
                 .GetUser(), cancellationToken);
 
             await _pianoContext.SaveChangesAsync(cancellationToken);
