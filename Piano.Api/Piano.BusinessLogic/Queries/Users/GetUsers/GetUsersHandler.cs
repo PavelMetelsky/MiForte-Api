@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Piano.BusinessLogic.Models;
 using Piano.Database;
+using System.Threading.Tasks;
 
 namespace Piano.BusinessLogic.Queries.Users.GetUsers
 {
