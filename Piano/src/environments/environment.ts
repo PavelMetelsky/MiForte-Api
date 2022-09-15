@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBase: 'http://localhost:7196/api',
+  apiBase: 'https://localhost:7196/api',
   authority: 'http://localhost:7196',
 };
 

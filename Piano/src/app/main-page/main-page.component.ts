@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { WEB_API_URL } from '../constants';
 import { NavigateService } from '../shared/base/navigate.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { NavigateService } from '../shared/base/navigate.service';
 })
 export class MainPageComponent implements OnInit {
   public user: string = 'init';
-  private usersUrl = 'https://localhost:7196/api/Users';
+  private usersUrl = `${WEB_API_URL}/Users/login`;
   protected headers: HttpHeaders = this.getHeaders();
   protected options = {
     headers: this.headers,

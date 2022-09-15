@@ -1,6 +1,7 @@
 import { HttpHeaders, HttpParams, HttpClient } from '@angular/common/http';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
+import { WEB_API_URL } from 'src/app/constants';
 import { NavigateService } from 'src/app/shared/base/navigate.service';
 import { StorageService } from 'src/app/storage.service';
 
@@ -17,7 +18,7 @@ interface ILoginModel {
   encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent {
-  private usersUrl = 'https://localhost:7196/api/Users/login';
+  private usersUrl = `${WEB_API_URL}/Users/login`;
   protected headers: HttpHeaders = this.getHeaders();
   protected options = {
     headers: this.headers,

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { WEB_API_URL } from 'src/app/constants';
 import { NavigateService } from 'src/app/shared/base/navigate.service';
 import { TicketService } from '../ticketservice';
 
@@ -24,7 +25,7 @@ export class ConfirmationStepComponent implements OnInit {
   public userModel: UserDetails = {} as UserDetails;
   public ticketInformation: any;
 
-  private usersUrl = 'https://localhost:7196/api/Users';
+  private usersUrl = `${WEB_API_URL}/Users`;
   protected headers: HttpHeaders = this.getHeaders();
   protected options = {
     headers: this.headers,

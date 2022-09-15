@@ -32,7 +32,7 @@ const controlPosition = {
 };
 // angular 9 compatibility
 
-const WEB_API_URL: string = environment.apiBase;
+export const WEB_API_URL: string = environment.apiBase;
 
 const buildUrl = (...resources: (string | number)[]) =>
   [WEB_API_URL].concat(resources.map((r) => r.toString())).join('/');
