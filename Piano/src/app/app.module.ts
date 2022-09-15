@@ -10,6 +10,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { StorageService } from './storage.service';
 import { SharedModule } from 'primeng/api';
 import { PrimengModule } from './shared/primeng.module';
+import { UserService } from './shared/services/user.service';
 
 @NgModule({
   declarations: [AppComponent, MainPageComponent],
@@ -23,7 +24,7 @@ import { PrimengModule } from './shared/primeng.module';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [StorageService],
+  providers: [StorageService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

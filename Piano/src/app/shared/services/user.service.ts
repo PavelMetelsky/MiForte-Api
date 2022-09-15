@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { URLS } from 'src/app/constants';
 import { StorageService } from 'src/app/storage.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UserService {
   constructor(
     private http: HttpClient,

@@ -67,7 +67,6 @@ export const URLS = {
   MARKET_METRICS: (postcode: string, radius: number) =>
     buildUrl(`Postcodes/${postcode}/radii/${radius}/metrics`),
   HOME_DETAILS: (homeId: number) => buildUrl(`careHomes/${homeId}`),
-  USERS: buildUrl('users'),
   USER: (userId: string) => buildUrl('users', userId),
 
   USER_AUDIT: (userId: string) => buildUrl('Users', userId, 'Audit'),

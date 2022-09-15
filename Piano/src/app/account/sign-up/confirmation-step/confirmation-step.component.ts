@@ -25,6 +25,13 @@ export class ConfirmationStepComponent implements OnInit {
   public complete(): void {
     this.ticketService.complete();
 
+    console.log(this.ticketInformation);
+    console.log('this.ticketInformation');
+
+    this.userModel.Role = this.ticketInformation.personalInformation.role;
+    this.userModel.Country = this.ticketInformation.seatInformation.country;
+    this.userModel.City = this.ticketInformation.seatInformation.city;
+    this.userModel.Telephone = this.ticketInformation.seatInformation.phone;
     this.userModel.Username =
       this.ticketInformation.paymentInformation.fullName;
     this.userModel.Email = this.ticketInformation.paymentInformation.login;

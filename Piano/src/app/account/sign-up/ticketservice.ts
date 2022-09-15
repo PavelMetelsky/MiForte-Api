@@ -34,6 +34,6 @@ export class TicketService {
   }
 
   public complete(): void {
-    this.paymentComplete.next(this.ticketInformation.personalInformation);
+    this.paymentComplete.next(this.ticketInformation);
   }
 }
