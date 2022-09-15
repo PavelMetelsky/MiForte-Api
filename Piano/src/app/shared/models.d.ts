@@ -43,3 +43,13 @@ interface User {
   password: string;
   links: string;
 }
+
+interface IUserDetails {
+  Role: number;
+  Country: string;
+  City: string;
+  Telephone: string;
+  Username: string;
+  Email: string;
+  Password: string;
+}

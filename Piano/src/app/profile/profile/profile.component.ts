@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigateService } from 'src/app/shared/base/navigate.service';
 import { StorageService } from 'src/app/storage.service';
 
-interface IUserDetails {
+interface IIUserDetailsToDelete {
   crmLink: string;
   id: string;
   email: string;
@@ -24,7 +24,7 @@ interface IUserDetails {
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  public userModel: IUserDetails;
+  public userModel: IIUserDetailsToDelete;
   public accessLevelDisplay: string;
 
   public serverValidationFailed: boolean;

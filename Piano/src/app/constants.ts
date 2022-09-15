@@ -32,7 +32,7 @@ const controlPosition = {
 };
 // angular 9 compatibility
 
-export const WEB_API_URL: string = environment.apiBase;
+const WEB_API_URL: string = environment.apiBase;
 
 const buildUrl = (...resources: (string | number)[]) =>
   [WEB_API_URL].concat(resources.map((r) => r.toString())).join('/');
@@ -41,28 +41,19 @@ const buildAuthorityUrl = (...resources: (string | number)[]) =>
   [environment.authority].concat(resources.map((r) => r.toString())).join('/');
 
 export const URLS = {
-  LOGIN: buildUrl('Account/Login'),
+  LOGIN: buildUrl('Users/Login'),
+  USERS: buildUrl('users'),
+  SAVE_USER: buildUrl('Users'),
+
   LOGOUT: buildUrl('Account/Logout'),
   SIGN_UP: buildUrl('Account/Register'),
   FORGOT_PASSWORD: buildUrl('Account/ForgotPassword'),
-  REQUEST_RESET_PASSWORD: (userId: string) =>
-    buildUrl(`Account/${userId}/resetPassword`),
   SET_PASSWORD: buildUrl('Account/password'),
   RESET_PASSWORD: buildUrl('Account/password/reset'),
-  SEARCH_INFO: buildUrl('search', 'info'),
-  USER_PROFILE: buildUrl('Account/UserProfile'),
-  COMPANY_PROFILE: buildUrl('Account/CompanyProfile'),
-  COMPANY_PROFILE_USERS: buildUrl('Account/CompanyProfile/Users'),
   START_DATE: buildUrl('Account/startDate'),
   CHANGE_PASSWORD: buildUrl('Account/Password'),
   TERMS: (identifier: string) =>
     buildUrl(`Account/Terms?Identifier=${identifier}`),
-  WELCOME_PAGE_SHOWN: buildUrl('Account', 'WelcomePageShown'),
-  LAST_SEEN_UPDATE: buildUrl('Account', 'FeatureUpdateShown'),
-  FAIR_USE_LIMIT_SHOWN: buildUrl('Account', 'FairUseLimitShown'),
-  NEW_FEATURE_SEEN: buildUrl('Account', 'RemoveNewFeature'),
-  SERVER_CONSTANTS: buildUrl('App/ServerConstants'),
-  CLIENT_ERRORS: buildUrl('App/clientError'),
   SEARCH_POSTCODE: buildUrl('LookUps', 'Postcodes'),
   REPORT: (reportId: number) => buildUrl('reports', reportId),
   POSTCODE_RADII: (postcode: string) => buildUrl(`Postcodes/${postcode}/radii`),
@@ -75,41 +66,10 @@ export const URLS = {
     buildUrl('postcodes', 'radii', radius, 'details'),
   MARKET_METRICS: (postcode: string, radius: number) =>
     buildUrl(`Postcodes/${postcode}/radii/${radius}/metrics`),
-  MARKET_FEES: (postcode: string, radius: number, target: number) =>
-    buildUrl(`Postcodes/${postcode}/radii/${radius}/fees/${target}`),
-  FEE_RATES_AVAILABILITY: (postcode: string, radius: number) =>
-    buildUrl(`Postcodes/${postcode}/radii/${radius}/feeAvailability`),
-  FEE_DISTRIBUTION: (postcode: string, radius: number, category: string) =>
-    buildUrl(
-      'Postcodes',
-      postcode,
-      'radii',
-      radius,
-      'category',
-      category,
-      'fee',
-      'distribution'
-    ),
   HOME_DETAILS: (homeId: number) => buildUrl(`careHomes/${homeId}`),
-  TOP_OPERATORS: buildUrl('careHomes/operators'),
-  PLANNING_HOME_DETAILS: (homeId: number) =>
-    buildUrl(`PlanningHomes/${homeId}`),
-  NEAREST_HOMES: (postcode: string, radius: number) =>
-    buildUrl('Postcodes', postcode, 'radii', radius, 'homes/nearest'),
-  CAREHOMES_LIST: (postcode: string, radius: number) =>
-    buildUrl('Postcodes', postcode, 'radii', radius, 'Carehomes', 'List'),
-  PLANNING_HOMES_LIST: (postcode: string, radius: number) =>
-    buildUrl('Postcodes', postcode, 'radii', radius, 'PlanningHomes', 'List'),
-  POSTCODE_METRICS_PDF: (postcode: string, radius: number) =>
-    buildUrl('Postcodes', postcode, 'radius', radius, 'metrics', 'pdf'),
-  POSTCODE_SEARCH_DETAILS: (postcode: string) =>
-    buildUrl('Postcodes', postcode, 'Details'),
-  USER_SEARCH_HISTORY: buildUrl('user', 'searchHistory'),
-  COMPANY_SEARCH_HISTORY: buildUrl('company', 'searchHistory'),
-  DELETE_SEARCH_HISTORY: buildUrl('searchHistory', 'delete'),
   USERS: buildUrl('users'),
   USER: (userId: string) => buildUrl('users', userId),
-  SAVE_USER: buildUrl('Users'),
+
   USER_AUDIT: (userId: string) => buildUrl('Users', userId, 'Audit'),
   LABELS: buildUrl('labels'),
   PRIORITIES: buildUrl('priorities'),
@@ -120,47 +80,6 @@ export const URLS = {
   TOKEN_INFO: buildAuthorityUrl('connect/userinfo'),
   REVOCATION: buildAuthorityUrl('connect/revocation'),
   TRACKER_OPTIONS: buildUrl('searchHistory', 'options', 'notifications'),
-  TRACKER_SUBSCRIPTIONS: buildUrl('searchHistory', 'subscriptions'),
-  HOUSE_PRICES: (postcode: string, radius: number, rangeType: number) =>
-    buildUrl(
-      'Postcodes',
-      postcode,
-      'Radii',
-      radius,
-      'HousePrices',
-      rangeType,
-      'items'
-    ),
-  REGISTERED_NURSES: (postcode: string, radius: number, rangeType: number) =>
-    buildUrl(
-      'Postcodes',
-      postcode,
-      'Radii',
-      radius,
-      'RegisteredNurses',
-      rangeType,
-      'items'
-    ),
-  CARE_ASSISTANTS: (postcode: string, radius: number, rangeType: number) =>
-    buildUrl(
-      'Postcodes',
-      postcode,
-      'Radii',
-      radius,
-      'CareAssistants',
-      rangeType,
-      'items'
-    ),
-  DEMAND: (postcode: string, radius: number, rangeType: number) =>
-    buildUrl(
-      'Postcodes',
-      postcode,
-      'Radii',
-      radius,
-      'Demand',
-      rangeType,
-      'items'
-    ),
   HEATMAP_RANGES: (heatmapMode: number, rangesCount: number) =>
     buildUrl('Heatmap', heatmapMode, 'Ranges', rangesCount),
   POSTCODE_SEARCH_ITEM: (postcode: string) =>
@@ -186,28 +105,8 @@ export const URLS = {
     buildUrl('Lookups', 'subscriptions', subscriptionType),
   COMPANY_AUDIT: (companyId: number) =>
     buildUrl('Companies', companyId, 'Audit'),
-  POSTCODE_REPORT_IMAGE: (postcode: string, radius: number) =>
-    buildUrl(
-      'Postcodes',
-      postcode,
-      'radius',
-      radius,
-      'metrics',
-      'pdf',
-      'image'
-    ),
   NEAREST_POSTCODES: (lat: number, lng: number) =>
     buildUrl('Postcodes', 'Search', lat, lng),
-  OPERATORS_SEARCH: buildUrl('lookups', 'operators'),
-  OPERATOR_CAREHOMES: buildUrl('operators', 'carehomes'),
-  BULK_PDF: buildUrl('postcodes', 'operator', 'metrics', 'pdf'),
-  SUBSCRIPTION_SUMMARY: buildUrl('admin', 'subscriptionSummary'),
-  USAGE_SUMMARY: (period: number) => buildUrl('admin', 'usageSummary', period),
-  COMPANIES_CSV_LINK: buildUrl('companies', 'csv'),
-  USERS_CSV_LINK: buildUrl('users', 'csv'),
-  AUTHORITIES: buildUrl('authorities'),
-  AUTHORITY_METRICS: (code: string) => buildUrl('authorities', code, 'metrics'),
-  AUTHORITY_FEES: (code: string) => buildUrl('authorities', code, 'fees'),
   AUTHORITY_PDF: (code: string) => buildUrl('authorities', code, 'pdf'),
 };
 
