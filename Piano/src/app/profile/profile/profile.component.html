@@ -4,109 +4,64 @@
       <span class="title">
         My Profile
       </span>
-      <span class="title">
-        Login
-      </span>
-      <span class="title">
-        {{userModel.Email}}
-      </span>
     </div>
     <div fxFlex="1 1 auto" fxFill class="panel-body">
       <span #top></span>
       <div class="body-content" fxLayout="column">
         <div fxFlex="1 1 100%" fxFill fxLayout fxLayoutAlign="center">
-          <div *ngIf="userModel && userModel.Email != null || true" fxFlex.xs="1 1 100%" fxFlex.gt-xs="1 1 550px">
+          <div *ngIf="userModel && userModel.email != null || true" fxFlex.xs="1 1 100%" fxFlex.gt-xs="1 1 550px">
 
             <div class="panel flat">
-              <div class="panel-header">
-                <span class="title" translate>PERSONAL_INFORMATION</span>
-                <span *ngIf="!isRead" class="right">
-                  <span class="legend" translate>REQUIRED_FIELDS</span>
-                </span>
-              </div>
               <div class="panel-body">
-                <form [ngClass]="{'read': isRead, 'edit': isEdit, 'submitted': submitted}" #profileForm="ngForm">
+                <form #profileForm="ngForm" fxLayout="column">
 
-                  <ng-template #emailDisplayTemplate>
-                    <span class="primary-user-email">
-                      <span>{{userModel.email}}</span>
-                      <span *ngIf="userModel.isPrimary">
-                        <span class="column-extra-value" translate>PRIMARY</span>
-                        <context-help [descriptionKey]="primaryUserHelpKey" [icon]="'ci ci-info-active'"></context-help>
-                      </span>
-                    </span>
-                  </ng-template>
-                  <form-group [label]="'EMAIL_ADDRESS' | translate" [active]="!isRead"
-                    [customDisplayTemplate]="emailDisplayTemplate">
-                    <input type="text" [ngModel]="userModel.email" name="email" required disabled type="email"
+                  <label for="Username">Username</label>
+                  <form-group [label]="Username" [value]="userModel.Username">
+                    <input readonly disabled type="text" [(ngModel)]="userModel.username" placeholder="Username"
+                      name="Username" pInputText>
+                  </form-group>
+
+                  <label for="Email">Email</label>
+                  <form-group [label]="Email" [value]="userModel.Email">
+                    <input readonly disabled type="text" [(ngModel)]="userModel.email" placeholder="Email" name="Email"
                       pInputText>
                   </form-group>
 
-                  <form-group [label]="'FIRST_NAME' | translate" [value]="userModel.firstName" [active]="!isRead">
-                    <input type="text" [(ngModel)]="userModel.firstName" name="firstName" required [minlength]="2"
-                      [maxlength]="1024" pInputText>
+                  <label for="Telephone">Telephone</label>
+                  <form-group [label]="Telephone" [value]="userModel.Telephone">
+                    <input readonly disabled type="text" [(ngModel)]="userModel.telephone" placeholder="Telephone"
+                      name="Telephone" pInputText>
                   </form-group>
 
-                  <form-group [label]="'LAST_NAME' | translate" [value]="userModel.lastName" [active]="!isRead">
-                    <input type="text" [(ngModel)]="userModel.lastName" name="lastName" required [minlength]="2"
-                      [maxlength]="1024" pInputText>
-                  </form-group>
-
-                  <form-group [label]="'MOBILE_NUMBER' | translate"
-                    [value]="userModel.phoneNumber ? ('+ ' + userModel.phoneNumber) : ''" [active]="!isRead">
-                    <input type="text" [(ngModel)]="userModel.phoneNumber" name="phoneNumber" [pattern]="patterns.PHONE"
-                      [maxlength]="100" [minlength]="5" pInputText prefix="+ " prefixPadding="21px">
-                  </form-group>
-
-                  <form-group [label]="'COMPANY_NAME' | translate" [value]="userModel.company.text" [active]="!isRead">
-                    <input type="text" [(ngModel)]="userModel.company.text" name="companyName" readonly disabled
+                  <label for="Role">Role</label>
+                  <form-group [label]="Role" [value]="userModel.Role">
+                    <input readonly disabled type="text" [(ngModel)]="userModel.role" placeholder="Role" name="Role"
                       pInputText>
                   </form-group>
 
-                  <div class="form-group" *ngIf="userModel && userModel.company && userModel.company.status">
-                    <label translate>
-                      COMPANY_STATUS
-                    </label>
-                    <div class="readonly-status">
-                      <span class="status-badge" [ngClass]="userStatuses[userModel.company.status].class">
-                        {{userStatuses[userModel.company.status].nameKey | translate}}
-                      </span>
-                    </div>
-                  </div>
+                  <label for="Country">Country</label>
+                  <form-group [label]="Country" [value]="userModel.Country">
+                    <input readonly disabled type="text" [(ngModel)]="userModel.country" placeholder="Country"
+                      name="Country" pInputText>
+                  </form-group>
 
+                  <label for="City">City</label>
+                  <form-group [label]="City" [value]="userModel.City">
+                    <input readonly disabled type="text" [(ngModel)]="userModel.city" placeholder="City" name="City"
+                      pInputText>
+                  </form-group>
 
                 </form>
               </div>
-              <!-- <div class="panel-footer"
-                               *ngIf="isActiveUser">
-                              <div class="actions">
-                                  <div class="right">
-                                      <button pButton
-                                              *ngIf="isRead"
-                                              label="Edit"
-                                              class="primary"
-                                              type="button"
-                                              (click)="toEditMode()"></button>
-                                      <button pButton
-                                              *ngIf="isEdit"
-                                              class="link"
-                                              label="Cancel"
-                                              type="button"
-                                              (click)="toReadMode()"></button>
-                                      <button pButton
-                                              *ngIf="!isRead"
-                                              label="Save Changes"
-                                              class="primary"
-                                              type="submit"
-                                              (click)="saveChanges(profileForm.form); top.scrollIntoView();"></button>
-                                  </div>
-                              </div>
-                          </div> -->
+              <!-- <div class="panel-footer">
+                <div class="actions">
+                  <div class="right">
+                    <button pButton label="Save Changes" class="primary" type="submit"
+                      (click)="saveChanges(profileForm.form); top.scrollIntoView();"></button>
+                  </div>
+                </div>
+              </div> -->
             </div>
-
-            <!-- <edit-password *ngIf="isActiveUser"
-                                     (passwordChange)="fetchPassword()"
-                                     [passwordUpdated]="passwordLastUpdate"></edit-password> -->
           </div>
         </div>
       </div>

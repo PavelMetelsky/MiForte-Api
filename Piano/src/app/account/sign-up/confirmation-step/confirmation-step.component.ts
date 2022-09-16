@@ -28,14 +28,14 @@ export class ConfirmationStepComponent implements OnInit {
     console.log(this.ticketInformation);
     console.log('this.ticketInformation');
 
-    this.userModel.Role = this.ticketInformation.personalInformation.role;
-    this.userModel.Country = this.ticketInformation.seatInformation.country;
-    this.userModel.City = this.ticketInformation.seatInformation.city;
-    this.userModel.Telephone = this.ticketInformation.seatInformation.phone;
-    this.userModel.Username =
+    this.userModel.role = this.ticketInformation.personalInformation.role;
+    this.userModel.country = this.ticketInformation.seatInformation.country;
+    this.userModel.city = this.ticketInformation.seatInformation.city;
+    this.userModel.telephone = this.ticketInformation.seatInformation.phone;
+    this.userModel.username =
       this.ticketInformation.paymentInformation.fullName;
-    this.userModel.Email = this.ticketInformation.paymentInformation.login;
-    this.userModel.Password =
+    this.userModel.email = this.ticketInformation.paymentInformation.login;
+    this.userModel.password =
       this.ticketInformation.paymentInformation.password;
 
     console.log(this.userModel);

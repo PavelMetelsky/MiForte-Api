@@ -45,11 +45,11 @@ interface User {
 }
 
 interface IUserDetails {
-  Role: number;
-  Country: string;
-  City: string;
-  Telephone: string;
-  Username: string;
-  Email: string;
-  Password: string;
+  username: string;
+  email: string;
+  telephone: string;
+  role: number;
+  country: string;
+  city: string;
+  password: string;
 }

@@ -9,12 +9,13 @@ var MyAllowSpecificOrigins = "MyPolicy";
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
     {
-        builder.WithOrigins("http://localhost:4200")
+        builder.WithOrigins("http://localhost:4200", "https://miforte.com")
              .AllowAnyHeader()
              .AllowAnyMethod();
     });
@@ -34,7 +35,11 @@ builder.Services.AddCors(options =>
     services.AddMediatR(typeof(Piano.BusinessLogic.Models.User));
 }
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+var url = $"http://0.0.0.0:{port}";
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -52,4 +57,5 @@ app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
+//app.Run(url);
 app.Run();

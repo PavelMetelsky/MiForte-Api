@@ -17,7 +17,7 @@ export class ProfileComponent {
     private usersService: UsersService
   ) {
     this.usersService
-      .getUser(this.storageService.getItem('userId'))
+      .getUser(this.storageService.get('userId'))
       .subscribe((user) => {
         this.userModel = user;
         console.log(user);

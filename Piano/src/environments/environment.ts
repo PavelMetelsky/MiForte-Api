@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBase: 'https://localhost:7196/api',
+  apiBase: 'https://piano-4o3dskausa-no.a.run.app/api',
   authority: 'http://localhost:7196',
 };
 
