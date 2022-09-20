@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Piano.Database;
 using System;
+using System.Threading.Tasks;
+using Piano.Entities;
 
 namespace Piano.BusinessLogic.IntegrationTests
 {
@@ -15,6 +17,11 @@ namespace Piano.BusinessLogic.IntegrationTests
                 .Options;
 
             _pianoContext = new PianoContext(options);
+        }
+
+        public async Task<User?> GetUser(string username, string password)
+        {
+            return await _pianoContext.Users.FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
         }
 
         public void AddUser(string email, string username, Guid userId, string password)
