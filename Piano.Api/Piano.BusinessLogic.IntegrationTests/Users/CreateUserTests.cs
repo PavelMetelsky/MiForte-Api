@@ -22,7 +22,7 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
     private void ConfigureFaker()
     {
         _commandFaker
-            .RuleFor(u => u.Role, u => 1)
+            .RuleFor(u => u.Role, _ => 1)
             .RuleFor(u => u.Country, f => f.Address.Country())
             .RuleFor(u => u.City, f => f.Person.Address.City)
             .RuleFor(u => u.Telephone, f => f.Person.Phone)
