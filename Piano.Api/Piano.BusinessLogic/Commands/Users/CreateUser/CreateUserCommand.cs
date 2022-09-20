@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Piano.BusinessLogic.Commands.Users.CreateUser
 {
-    public class CreateUserCommand : IRequest<Unit>
+    public class CreateUserCommand : IRequest<Result>
     {
         //[Required]
         public int Role { get; set; }

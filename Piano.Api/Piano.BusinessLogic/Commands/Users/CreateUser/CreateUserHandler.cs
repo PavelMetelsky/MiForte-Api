@@ -3,7 +3,7 @@ using Piano.Database;
 
 namespace Piano.BusinessLogic.Commands.Users.CreateUser
 {
-    public class CreateUserHandler : IRequestHandler<CreateUserCommand, Unit>
+    public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result>
     {
         private readonly PianoContext _pianoContext;
 
@@ -12,10 +12,10 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
             _pianoContext = pianoContext;
         }
 
-        public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var ub = new Entities.UserBuilder();
-            await _pianoContext.Users.AddAsync(ub
+            var user = await _pianoContext.Users.AddAsync(ub
                 .WithUsername(request.Username)
                 .HasRole(1)
                 .HasEmail(request.Email)
@@ -26,7 +26,10 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
 
             await _pianoContext.SaveChangesAsync(cancellationToken);
 
-            return default;
+            return new Result
+            {
+                Flag = user.Entity.UserId
+            };
         }
     }
 }
