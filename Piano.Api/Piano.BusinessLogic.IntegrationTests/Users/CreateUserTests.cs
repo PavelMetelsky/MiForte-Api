@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Bogus;
 using Piano.BusinessLogic.Commands.Users.CreateUser;
 using Piano.Entities;
 using Xunit;
@@ -9,11 +10,25 @@ namespace Piano.BusinessLogic.IntegrationTests;
 
 public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
 {
+    private readonly Faker<CreateUserCommand> _commandFaker = new();
     private readonly InMemorySeedDataFixture _fixture;
 
     public CreateUserTests(InMemorySeedDataFixture fixture)
     {
         _fixture = fixture;
+        ConfigureFaker();
+    }
+
+    private void ConfigureFaker()
+    {
+        _commandFaker
+            .RuleFor(u => u.Role, u => 1)
+            .RuleFor(u => u.Country, f => f.Address.Country())
+            .RuleFor(u => u.City, f => f.Person.Address.City)
+            .RuleFor(u => u.Telephone, f => f.Person.Phone)
+            .RuleFor(u => u.Email, f => f.Person.Email)
+            .RuleFor(u => u.Username, f => f.Person.UserName)
+            .RuleFor(u => u.Password, f => f.Internet.Password());
     }
 
     [Fact]
@@ -36,14 +51,7 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
 
     private CreateUserCommand GenerateCreateUserCommand()
     {
-        return new CreateUserCommand()
-        { Role = 1,
-          City = "Brest",
-          Country = "Belarus",
-          Email = "email",
-          Password = "pswd",
-          Username = "username",
-          Telephone = "tlph" };
+        return _commandFaker.Generate();
     }
 
     private bool UserMatchesRequest(User user, CreateUserCommand command, Guid userId)
