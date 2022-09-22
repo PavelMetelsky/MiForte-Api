@@ -3,16 +3,16 @@ using Piano.Database;
 
 namespace Piano.BusinessLogic.Commands.Users.CreateUser
 {
-    public class CreateUserHandler : IRequestHandler<CreateUserCommand, Unit>
+    public class CreateUserHandlerNew : IRequestHandler<CreateUserCommandNew, Result>
     {
         private readonly PianoContext _pianoContext;
 
-        public CreateUserHandler(PianoContext pianoContext)
+        public CreateUserHandlerNew(PianoContext pianoContext)
         {
             _pianoContext = pianoContext;
         }
 
-        public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(CreateUserCommandNew request, CancellationToken cancellationToken)
         {
             var ub = new Entities.UserBuilder();
             var user = await _pianoContext.Users.AddAsync(ub
@@ -26,7 +26,10 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
 
             await _pianoContext.SaveChangesAsync(cancellationToken);
 
-            return default;
+            return new Result
+            {
+                Flag = user.Entity.UserId
+            };
         }
     }
 }

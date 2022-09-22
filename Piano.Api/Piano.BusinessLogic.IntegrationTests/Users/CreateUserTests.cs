@@ -10,7 +10,7 @@ namespace Piano.BusinessLogic.IntegrationTests;
 
 public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
 {
-    private readonly Faker<CreateUserCommand> _commandFaker = new();
+    private readonly Faker<CreateUserCommandNew> _commandFaker = new();
     private readonly InMemorySeedDataFixture _fixture;
 
     public CreateUserTests(InMemorySeedDataFixture fixture)
@@ -39,9 +39,9 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
         Assert.True(UserMatchesRequest(user, createUserCommand, userId));
     }
 
-    private async Task<(User, Guid)> SendCreateUserCommand(CreateUserCommand createUserCommand)
+    private async Task<(User, Guid)> SendCreateUserCommand(CreateUserCommandNew createUserCommand)
     {
-        var handler = new CreateUserHandler(_fixture._pianoContext);
+        var handler = new CreateUserHandlerNew(_fixture._pianoContext);
         var result = await handler.Handle(createUserCommand, CancellationToken.None);
         var user = await _fixture.GetUser(createUserCommand.Username, createUserCommand.Password);
         Assert.NotNull(result.Flag);
@@ -49,12 +49,12 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
         return (user!, result.Flag!.Value);
     }
 
-    private CreateUserCommand GenerateCreateUserCommand()
+    private CreateUserCommandNew GenerateCreateUserCommand()
     {
         return _commandFaker.Generate();
     }
 
-    private bool UserMatchesRequest(User user, CreateUserCommand command, Guid userId)
+    private bool UserMatchesRequest(User user, CreateUserCommandNew command, Guid userId)
     {
         return user.UserId == userId &&
                user.Username == command.Username &&
