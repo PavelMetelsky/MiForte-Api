@@ -18,14 +18,16 @@ public class GetUsersSubscriptionsHandler : IRequestHandler<GetUsersSubscription
         CancellationToken cancellationToken)
     {
         return await _pianoContext.SubscriptionCards.Where(
-                e => e.Owner.UserId == Guid.Parse(request.UserId))
+                e => e.OwnerId == Guid.Parse(request.UserId))
             .Select(s => new SubscriptionCard
-            { Classes = s.Classes.Select(c => new Class
-              { ClassDate = c.ClassDate,
+            { Sessions = s.Sessions.Select(c => new Session
+              { SessionDate = c.ClassDate,
                 Duration = c.Duration,
-                MentorId = c.Mentor.UserId,
-                State = (int) c.State }).ToList(),
+                MentorId = c.MentorId,
+                State = (int) c.State, }).ToList(),
               BuyingDate = s.BuyingDate,
-              ActiveMonth = s.ActiveMonth }).ToListAsync(cancellationToken);
+              ActiveMonth = s.ActiveMonth,
+              Id = s.Id,
+              OwnerId = s.OwnerId }).ToListAsync(cancellationToken);
     }
 }

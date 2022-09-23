@@ -1,8 +1,8 @@
 ﻿namespace Piano.Entities.Subscriptions;
 
-public class Class
+public class Session
 {
-    public enum ClassState
+    public enum SessionState
     {
         WasHeld = 0,
         Postponed = 1,
@@ -10,7 +10,7 @@ public class Class
         Upcoming = 4,
     }
     public DateOnly ClassDate { get; set; }
-    public ClassState State { get; set; }
+    public SessionState State { get; set; }
     public TimeSpan Duration { get; set; }
-    public User Mentor { get; set; }
+    public Guid MentorId { get; set; }
 }
