@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Piano.Entities;
+using Piano.Entities.Subscriptions;
 
 namespace Piano.Database
 {
@@ -16,5 +17,6 @@ namespace Piano.Database
 
         public DbSet<User> Users { get; set; }
         public DbSet<SocialLink> SocialLinks { get; set; }
+        public DbSet<SubscriptionCard> SubscriptionCards { get; set; }
     }
 }
