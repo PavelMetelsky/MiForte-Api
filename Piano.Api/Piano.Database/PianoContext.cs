@@ -18,5 +18,6 @@ namespace Piano.Database
         public DbSet<User> Users { get; set; }
         public DbSet<SocialLink> SocialLinks { get; set; }
         public DbSet<SubscriptionCard> SubscriptionCards { get; set; }
+        public DbSet<Session> Sessions { get; set; }
     }
 }
