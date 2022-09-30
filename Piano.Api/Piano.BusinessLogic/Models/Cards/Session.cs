@@ -2,7 +2,8 @@
 
 public class Session
 {
-    public DateOnly SessionDate { get; set; }
+
+    public DateTime SessionDate { get; set; }
     public int State { get; set; }
     public TimeSpan Duration { get; set; }
     public Guid MentorId { get; set; }
