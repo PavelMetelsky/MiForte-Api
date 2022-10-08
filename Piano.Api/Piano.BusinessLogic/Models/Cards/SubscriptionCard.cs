@@ -7,15 +7,5 @@ public class SubscriptionCard
     public DateOnly BuyingDate { get; set; }
     public DateOnly ActiveMonth { get; set; }
     public Guid OwnerId { get; set; }
-    public int ClassesCount => Sessions.Count;
-
-    public Entities.Subscriptions.SubscriptionCard ToEntitySubscriptionCard()
-    {
-        return new()
-        { Id = Id,
-          ActiveMonth = ActiveMonth,
-          BuyingDate = BuyingDate,
-          OwnerId = OwnerId,
-          Sessions = Sessions.Select(s => s.ToEntitiesSession()).ToList() };
-    }
+    public Guid MentorId { get; set; }
 }

@@ -2,6 +2,8 @@
 
 public class Session
 {
+    public Guid Id { get; set; }
+
     public enum SessionState
     {
         WasHeld = 0,
@@ -9,8 +11,9 @@ public class Session
         Cancelled = 2,
         Upcoming = 4,
     }
-    public DateOnly ClassDate { get; set; }
+
+    public DateOnly SessionDate { get; set; } // TODO: Rename
     public SessionState State { get; set; }
     public TimeSpan Duration { get; set; }
-    public Guid MentorId { get; set; }
+    public Guid OwnerId { get; set; }
 }

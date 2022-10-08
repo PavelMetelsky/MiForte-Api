@@ -17,17 +17,10 @@ public class GetUsersSubscriptionsHandler : IRequestHandler<GetUsersSubscription
     public async Task<List<SubscriptionCard>> Handle(GetUsersSubscriptionsQuery request,
         CancellationToken cancellationToken)
     {
-        return await _pianoContext.SubscriptionCards.Where(
-                e => e.OwnerId == Guid.Parse(request.UserId))
-            .Select(s => new SubscriptionCard
-            { Sessions = s.Sessions.Select(c => new Session
-              { SessionDate = c.ClassDate,
-                Duration = c.Duration,
-                MentorId = c.MentorId,
-                State = (int) c.State, }).ToList(),
-              BuyingDate = s.BuyingDate,
-              ActiveMonth = s.ActiveMonth,
-              Id = s.Id,
-              OwnerId = s.OwnerId }).ToListAsync(cancellationToken);
+        var userGuid = Guid.Parse(request.UserId);
+        return await _pianoContext.SubscriptionCards
+                                  .Where(s => s.OwnerId == userGuid)
+                                  .Select(s => s.ToModelSubscriptionCard())
+                                  .ToListAsync(cancellationToken);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MediatR;
+using Piano.BusinessLogic.Models.Cards;
 using Piano.Database;
-using Piano.Entities.Subscriptions;
+using SubscriptionCard = Piano.Entities.Subscriptions.SubscriptionCard;
 
 namespace Piano.BusinessLogic.Commands.SubscriptionCards.CreateSubscriptionCard;
 
@@ -16,11 +17,13 @@ public class CreateSubscriptionCardHandler : IRequestHandler<CreateSubscriptionC
     public async Task<Unit> Handle(CreateSubscriptionCardCommand request, CancellationToken cancellationToken)
     {
         await _pianoContext.SubscriptionCards.AddAsync(new SubscriptionCard
-        { ActiveMonth = request.ActiveMonth,
+        { 
+          ActiveMonth = request.ActiveMonth,
           BuyingDate = request.BuyingDate,
-          Sessions = request.Classes.Select(s => s.ToEntitiesSession()).ToList(),
+          Sessions = request.Classes.ToEntitiesSessionList(),
           OwnerId = Guid.Parse(request.OwnerId),
-          Id = Guid.NewGuid(),
+          MentorId = Guid.Parse(request.MentorId),
+          Id = Guid.NewGuid(), 
         }, cancellationToken);
         return default;
     }

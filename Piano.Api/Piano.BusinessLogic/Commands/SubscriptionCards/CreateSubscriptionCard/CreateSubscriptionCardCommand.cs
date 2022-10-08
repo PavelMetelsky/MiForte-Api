@@ -9,4 +9,5 @@ public class CreateSubscriptionCardCommand : IRequest<Unit>
     public DateOnly BuyingDate { get; set; }
     public DateOnly ActiveMonth { get; set; }
     public string OwnerId { get; set; }
+    public string MentorId { get; set; }
 }
