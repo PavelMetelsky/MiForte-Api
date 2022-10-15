@@ -7,7 +7,7 @@ namespace Piano.BusinessLogic.Commands.SubscriptionCards.CreateSubscriptionCard;
 
 public class CreateSubscriptionCardCommand : IRequest<Unit>
 {
-    public List<RequestSession> Classes { get; set; }
+    public List<RequestSession> Sessions { get; set; }
     [JsonConverter(typeof(DateOnlyJsonConverter))]
     public DateOnly BuyingDate { get; set; }
     [JsonConverter(typeof(DateOnlyJsonConverter))]

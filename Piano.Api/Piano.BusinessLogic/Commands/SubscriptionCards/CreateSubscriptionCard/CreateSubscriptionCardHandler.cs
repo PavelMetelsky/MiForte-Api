@@ -21,7 +21,7 @@ public class CreateSubscriptionCardHandler : IRequestHandler<CreateSubscriptionC
         { 
           ActiveMonth = request.ActiveMonth,
           BuyingDate = request.BuyingDate,
-          Sessions = request.Classes.ToEntitiesSessionList(id),
+          Sessions = request.Sessions.ToEntitiesSessionList(id),
           OwnerId = Guid.Parse(request.OwnerId),
           MentorId = Guid.Parse(request.MentorId),
           Id = id, 

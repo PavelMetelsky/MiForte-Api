@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Piano.BusinessLogic.Commands.SubscriptionCards.CreateSubscriptionCard;
 using Piano.BusinessLogic.Commands.SubscriptionCards.DeleteSubscriptionCard;
+using Piano.BusinessLogic.Commands.SubscriptionCards.UpdateSubscriptionCard;
 using Piano.BusinessLogic.Models.Cards;
 using Piano.BusinessLogic.Queries.SubscriptionCards;
 
@@ -42,6 +43,13 @@ public class SubscriptionsController : ControllerBase
         };
         await _mediator.Send(command);
 
+        return Ok();
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Update([FromBody] UpdateSubscriptionCardCommand command)
+    {
+        await _mediator.Send(command);
         return Ok();
     }
 }

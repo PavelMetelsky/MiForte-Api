@@ -45,7 +45,7 @@ public static class Converter
         return new SubscriptionCard
         { 
             Id = card.Id,
-            Sessions = card.Sessions.ToModelSession(),
+            Sessions = card.Sessions.ToModelSessionList(),
             BuyingDate = card.BuyingDate,
             ActiveMonth = card.ActiveMonth,
             OwnerId = card.OwnerId,
@@ -58,7 +58,7 @@ public static class Converter
         return sessions.Select(s => s.ToEntitiesSession()).ToList();
     }
 
-    public static List<Session> ToModelSession(
+    public static List<Session> ToModelSessionList(
         this IEnumerable<Entities.Subscriptions.Session> sessions)
     {
         return sessions.Select(ToModelSession).ToList();

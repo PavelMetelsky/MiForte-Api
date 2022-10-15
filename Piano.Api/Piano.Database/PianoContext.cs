@@ -18,16 +18,6 @@ namespace Piano.Database
                    .HaveColumnType("date");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Session>(b =>
-                b.HasOne<SubscriptionCard>()
-                 .WithMany(s => s.Sessions)
-                 .OnDelete(DeleteBehavior.Cascade)
-                 .IsRequired());
-        }
-
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{

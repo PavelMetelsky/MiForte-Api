@@ -1,4 +1,6 @@
-﻿namespace Piano.Entities.Subscriptions;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Piano.Entities.Subscriptions;
 
 public class SubscriptionCard
 {

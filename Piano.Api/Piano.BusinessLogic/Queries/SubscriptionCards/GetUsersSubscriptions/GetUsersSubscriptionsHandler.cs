@@ -20,6 +20,7 @@ public class GetUsersSubscriptionsHandler : IRequestHandler<GetUsersSubscription
         var userGuid = Guid.Parse(request.UserId);
         return await _pianoContext.SubscriptionCards
                                   .Where(s => s.OwnerId == userGuid)
+                                  .Include(c => c.Sessions)
                                   .Select(s => s.ToModelSubscriptionCard())
                                   .ToListAsync(cancellationToken);
     }
