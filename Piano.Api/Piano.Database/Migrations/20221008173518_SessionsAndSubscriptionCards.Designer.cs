@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Piano.Database;
 
@@ -11,9 +12,10 @@ using Piano.Database;
 namespace Piano.Database.Migrations
 {
     [DbContext(typeof(PianoContext))]
-    partial class PianoContextModelSnapshot : ModelSnapshot
+    [Migration("20221008173518_SessionsAndSubscriptionCards")]
+    partial class Sessions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +64,7 @@ namespace Piano.Database.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("SubscriptionCardId")
+                    b.Property<Guid?>("SubscriptionCardId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");

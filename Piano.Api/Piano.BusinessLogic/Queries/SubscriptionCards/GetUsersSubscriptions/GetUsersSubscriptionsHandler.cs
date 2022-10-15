@@ -1,9 +1,9 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using MediatR;
 using Piano.BusinessLogic.Models.Cards;
 using Piano.Database;
 
-namespace Piano.BusinessLogic.Queries.SubscriptionCards;
+namespace Piano.BusinessLogic.Queries.SubscriptionCards.GetUsersSubscriptions;
 
 public class GetUsersSubscriptionsHandler : IRequestHandler<GetUsersSubscriptionsQuery, List<SubscriptionCard>>
 {

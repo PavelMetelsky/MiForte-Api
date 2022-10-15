@@ -16,15 +16,19 @@ public class CreateSubscriptionCardHandler : IRequestHandler<CreateSubscriptionC
 
     public async Task<Unit> Handle(CreateSubscriptionCardCommand request, CancellationToken cancellationToken)
     {
+        var id = Guid.NewGuid();
         await _pianoContext.SubscriptionCards.AddAsync(new SubscriptionCard
         { 
           ActiveMonth = request.ActiveMonth,
           BuyingDate = request.BuyingDate,
-          Sessions = request.Classes.ToEntitiesSessionList(),
+          Sessions = request.Classes.ToEntitiesSessionList(id),
           OwnerId = Guid.Parse(request.OwnerId),
           MentorId = Guid.Parse(request.MentorId),
-          Id = Guid.NewGuid(), 
+          Id = id, 
         }, cancellationToken);
+        
+        await _pianoContext.SaveChangesAsync(cancellationToken);
+        
         return default;
     }
 }

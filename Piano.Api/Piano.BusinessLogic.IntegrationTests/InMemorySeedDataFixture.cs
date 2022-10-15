@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Piano.Database;
 using System;
+using Piano.Entities.Subscriptions;
 
 namespace Piano.BusinessLogic.IntegrationTests
 {
@@ -21,6 +22,23 @@ namespace Piano.BusinessLogic.IntegrationTests
         {
             _pianoContext.Users.Add(new Entities.User { Email = email, Username = username, UserId = userId, Password = password });
             _pianoContext.SaveChanges();
+        }
+
+        public void AddSubscriptionCard(SubscriptionCard card)
+        {
+            _pianoContext.Add(card);
+            _pianoContext.SaveChanges();
+        }
+
+        public void DeleteSubscriptionCard(SubscriptionCard card)
+        {
+            _pianoContext.Remove(card);
+            _pianoContext.SaveChanges();
+        }
+
+        public SubscriptionCard? GetSubscriptionCard(Guid id)
+        {
+            return _pianoContext.SubscriptionCards.Find(id);
         }
 
         public void Dispose()

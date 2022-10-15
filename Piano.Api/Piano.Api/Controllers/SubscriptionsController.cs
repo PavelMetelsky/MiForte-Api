@@ -9,7 +9,6 @@ namespace Piano.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-
 public class SubscriptionsController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -20,8 +19,10 @@ public class SubscriptionsController : ControllerBase
     }
 
     [HttpGet("{userId}")]
-    public async Task<IActionResult> GetSubscriptionCards([FromBody] GetUsersSubscriptionsQuery command)
+    public async Task<IActionResult> GetSubscriptionCards(string userId)
     {
+        var command = new GetUsersSubscriptionsQuery
+        { UserId = userId, };
         return Ok(await _mediator.Send(command));
     }
 
@@ -33,8 +34,12 @@ public class SubscriptionsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete([FromBody] DeleteSubscriptionCardCommand command)
+    public async Task<IActionResult> Delete(string id)
     {
+        var command = new DeleteSubscriptionCardCommand
+        {
+          Id = id,
+        };
         await _mediator.Send(command);
 
         return Ok();

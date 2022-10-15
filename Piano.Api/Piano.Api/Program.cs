@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using Piano.Database;
 using MediatR;
+using Microsoft.AspNetCore.Http.Json;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
+using Piano.BusinessLogic.Converters;
 
 var MyAllowSpecificOrigins = "MyPolicy";
 
@@ -13,13 +17,33 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
-                      builder =>
-    {
-        builder.WithOrigins("http://localhost:4200", "https://miforte.com")
-             .AllowAnyHeader()
-             .AllowAnyMethod();
-    });
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200", "https://miforte.com")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
 });
+
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.Converters.Add(new DateOnlyJsonConverter());
+    options.SerializerOptions.Converters.Add(new TimeSpanJsonConverter());
+});
+
+builder.Services.AddSwaggerGen(options =>
+    {
+        options.MapType<DateOnly>(() => new OpenApiSchema
+        { Type = "string",
+          Format = "date",
+          Example = new OpenApiString("2022-01-01") });
+        options.MapType<TimeSpan>(() => new OpenApiSchema
+        {
+            Type = "string",
+            Example = new OpenApiString("00:00"),
+         });
+    }
+);
 
 // Add services to the container.
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -27,7 +51,7 @@ builder.Services.AddCors(options =>
 
 {
     var services = builder.Services;
-
+    
     services.AddControllers();
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
