@@ -1,10 +1,12 @@
-﻿using System.Collections.ObjectModel;
+﻿using MediatR;
+using Piano.Entities;
+using System.ComponentModel.DataAnnotations;
 
-namespace Piano.Entities
+namespace Piano.BusinessLogic.Commands.Users.CreateUser
 {
-    public class User
+    public class CreateUserCommandNew : IRequest<Result>
     {
-        public Guid UserId { get; set; }
+        //[Required]
         public int Role { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
@@ -12,6 +14,6 @@ namespace Piano.Entities
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public List<SocialLink> SocialLinks { get; set; }
+        //public List<SocialLink> SocialLinks { get; set; }
     }
 }

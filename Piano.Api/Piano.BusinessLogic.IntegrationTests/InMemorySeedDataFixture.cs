@@ -18,6 +18,11 @@ namespace Piano.BusinessLogic.IntegrationTests
             _pianoContext = new PianoContext(options);
         }
 
+        public async Task<User?> GetUser(string username, string password)
+        {
+            return await _pianoContext.Users.FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
+        }
+
         public void AddUser(string email, string username, Guid userId, string password)
         {
             _pianoContext.Users.Add(new Entities.User { Email = email, Username = username, UserId = userId, Password = password });
