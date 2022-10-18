@@ -1,19 +1,16 @@
-﻿namespace Piano.BusinessLogic.Models.Cards;
+﻿using System.Text.Json.Serialization;
+using Piano.BusinessLogic.Converters;
+
+namespace Piano.BusinessLogic.Models.Cards;
 
 public class Session
 {
-
-    public DateTime SessionDate { get; set; }
+    public Guid Id { get; set; }
+    [JsonConverter(typeof(DateOnlyJsonConverter))]
+    public DateOnly SessionDate { get; set; }
     public int State { get; set; }
+    [JsonConverter(typeof(TimeSpanJsonConverter))]
     public TimeSpan Duration { get; set; }
-    public Guid MentorId { get; set; }
-
-    public Entities.Subscriptions.Session ToEntitiesSession()
-    {
-        return new()
-        { ClassDate = SessionDate,
-          Duration = Duration,
-          MentorId = MentorId,
-          State = (Entities.Subscriptions.Session.SessionState) State, };
-    }
+    public Guid OwnerId { get; set; }
+    public Guid SubscriptionCardId { get; set; }
 }

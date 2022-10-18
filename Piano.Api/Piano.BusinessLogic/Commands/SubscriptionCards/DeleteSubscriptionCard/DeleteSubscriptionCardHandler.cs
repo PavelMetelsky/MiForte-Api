@@ -15,10 +15,15 @@ public class DeleteSubscriptionCardHandler : IRequestHandler<DeleteSubscriptionC
 
     public async Task<Unit> Handle(DeleteSubscriptionCardCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _pianoContext.FindAsync<SubscriptionCard>(request.Id);
-        if (entity is not null)
-            _pianoContext.SubscriptionCards.Remove(entity);
+        var id = Guid.Parse(request.Id);
+        SubscriptionCard? entity = _pianoContext.SubscriptionCards.SingleOrDefault(s => s.Id == id);
+        if (entity == null)
+        {
+            return default;
+        }
 
+        _pianoContext.SubscriptionCards.Remove(entity);
+        await _pianoContext.SaveChangesAsync(cancellationToken);
         return default;
     }
 }

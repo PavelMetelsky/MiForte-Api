@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Piano.Database;
 
@@ -11,9 +12,10 @@ using Piano.Database;
 namespace Piano.Database.Migrations
 {
     [DbContext(typeof(PianoContext))]
-    partial class PianoContextModelSnapshot : ModelSnapshot
+    [Migration("20221010140332_DependenciesUpdate")]
+    partial class DependenciesUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,11 +146,13 @@ namespace Piano.Database.Migrations
 
             modelBuilder.Entity("Piano.Entities.Subscriptions.Session", b =>
                 {
-                    b.HasOne("Piano.Entities.Subscriptions.SubscriptionCard", null)
+                    b.HasOne("Piano.Entities.Subscriptions.SubscriptionCard", "SubscriptionCard")
                         .WithMany("Sessions")
                         .HasForeignKey("SubscriptionCardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("SubscriptionCard");
                 });
 
             modelBuilder.Entity("Piano.Entities.Subscriptions.SubscriptionCard", b =>
