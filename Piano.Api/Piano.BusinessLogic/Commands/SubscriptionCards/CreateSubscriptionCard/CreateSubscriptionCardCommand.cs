@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using MediatR;
 using Piano.BusinessLogic.Converters;
-using Piano.BusinessLogic.Models.Cards;
 
 namespace Piano.BusinessLogic.Commands.SubscriptionCards.CreateSubscriptionCard;
 

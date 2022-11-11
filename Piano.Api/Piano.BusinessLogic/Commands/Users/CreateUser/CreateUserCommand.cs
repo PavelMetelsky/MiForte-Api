@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using Piano.Entities;
-using System.ComponentModel.DataAnnotations;
 
 namespace Piano.BusinessLogic.Commands.Users.CreateUser
 {

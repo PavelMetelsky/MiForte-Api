@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Piano.BusinessLogic.Commands.SubscriptionCards.CreateSubscriptionCard;
 using Piano.BusinessLogic.Commands.SubscriptionCards.DeleteSubscriptionCard;
 using Piano.BusinessLogic.Commands.SubscriptionCards.UpdateSubscriptionCard;
-using Piano.BusinessLogic.Models.Cards;
 using Piano.BusinessLogic.Queries.SubscriptionCards;
 
 namespace Piano.Api.Controllers;

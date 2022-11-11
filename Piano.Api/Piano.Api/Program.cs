@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Web;
 using Piano.Database;
 using MediatR;
 using Microsoft.AspNetCore.Http.Json;
@@ -34,9 +31,11 @@ builder.Services.Configure<JsonOptions>(options =>
 builder.Services.AddSwaggerGen(options =>
     {
         options.MapType<DateOnly>(() => new OpenApiSchema
-        { Type = "string",
+        { 
+          Type = "string",
           Format = "date",
-          Example = new OpenApiString("2022-01-01") });
+          Example = new OpenApiString("2022-01-01") 
+        });
         options.MapType<TimeSpan>(() => new OpenApiSchema
         {
             Type = "string",
