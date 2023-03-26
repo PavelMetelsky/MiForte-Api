@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiBase: 'https://localhost:7196/api',
-  authority: 'http://localhost:7196',
+  apiBase: 'https://piano-2g5ad6of6q-lm.a.run.app/api',
+  authority: 'https://piano-2g5ad6of6q-lm.a.run.app',
+  // apiBase: 'https://localhost:7196/api',
+  // authority: 'http://localhost:7196',
 };
 
 /*

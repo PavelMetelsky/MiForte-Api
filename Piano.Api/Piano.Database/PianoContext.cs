@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Piano.Entities;
+using Piano.Entities.Mappings;
 using Piano.Entities.Subscriptions;
 
 namespace Piano.Database
 {
-    public class PianoContext: DbContext
+    public class PianoContext : DbContext
     {
+        public const string DefaultSchema = "dbo";
         public PianoContext(DbContextOptions<PianoContext> options)
             : base(options)
         {
@@ -19,5 +21,13 @@ namespace Piano.Database
         public DbSet<SocialLink> SocialLinks { get; set; }
         public DbSet<SubscriptionCard> SubscriptionCards { get; set; }
         public DbSet<Session> Sessions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new SocialLinkMap());
+            modelBuilder.ApplyConfiguration(new SubscriptionCardMap());
+            modelBuilder.ApplyConfiguration(new SessionMap());
+        }
     }
 }

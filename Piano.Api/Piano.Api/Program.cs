@@ -31,7 +31,9 @@ builder.Services.AddCors(options =>
     services.AddControllers();
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();
-    services.AddDbContext<PianoContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+    services.AddDbContext<PianoContext>(options
+         => options.UseNpgsql("name=ConnectionStrings:SampleDbConnection"));
+    //=> options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
     services.AddMediatR(typeof(Piano.BusinessLogic.Models.User));
 }
 
@@ -42,11 +44,11 @@ var app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
@@ -57,5 +59,5 @@ app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
-//app.Run(url);
-app.Run();
+app.Run(url);// prod
+//app.Run();
