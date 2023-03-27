@@ -56,7 +56,7 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
 
     private bool UserMatchesRequest(User user, CreateUserCommandNew command, Guid userId)
     {
-        return user.UserId == userId &&
+        return user.Id == userId &&
                user.Username == command.Username &&
                user.Password == command.Password &&
                user.Email == command.Email &&

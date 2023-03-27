@@ -26,7 +26,7 @@ namespace Piano.BusinessLogic.IntegrationTests
 
         public void AddUser(string email, string username, Guid userId, string password)
         {
-            _pianoContext.Users.Add(new Entities.User { Email = email, Username = username, UserId = userId, Password = password });
+            _pianoContext.Users.Add(new Entities.User { Email = email, Username = username, Id = userId, Password = password });
             _pianoContext.SaveChanges();
         }
 

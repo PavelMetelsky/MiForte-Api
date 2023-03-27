@@ -20,7 +20,7 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
 
             return new Result
             {
-                Flag = user?.UserId
+                Flag = user?.Id
             };
         }
     }

@@ -10,9 +10,12 @@ namespace Piano.Entities.Mappings
             builder.ToTable("SocialLinks");
             builder.HasKey(m => m.Id);
 
-            builder.Property(m => m.Id).HasColumnName("Id");
-            builder.Property(m => m.UserId).HasColumnName("UserId");
-            builder.Property(m => m.Link).HasColumnName("Link");
+            builder.HasOne(l => l.User)
+                   .WithMany(u => u.SocialLinks)
+                   .OnDelete(DeleteBehavior.Cascade)
+                   .HasForeignKey("UserId");
+            builder.Property(l => l.Link)
+                   .HasColumnName("Link");
         }
     }
 }

@@ -8,16 +8,31 @@ namespace Piano.Entities.Mappings
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("Users");
-            builder.HasKey(m => m.UserId);
+            builder.HasKey(m => m.Id);
 
-            builder.Property(m => m.UserId).HasColumnName("UserId");
-            builder.Property(m => m.Role).HasColumnName("Role");
-            builder.Property(m => m.Country).HasColumnName("Country");
-            builder.Property(m => m.City).HasColumnName("City");
-            builder.Property(m => m.Telephone).HasColumnName("Telephone");
-            builder.Property(m => m.Username).HasColumnName("Username");
-            builder.Property(m => m.Email).HasColumnName("Email");
-            builder.Property(m => m.Password).HasColumnName("Password");
+            builder.Property(u => u.UserType)
+                   .HasColumnName("UserType")
+                   .HasConversion<int>();
+            builder.Property(u => u.Login)
+                   .HasColumnName("Login");
+            builder.Property(u => u.Password)
+                   .HasColumnName("Password");
+            builder.Property(u => u.PhoneNumber)
+                   .HasColumnName("PhoneNumber");
+            builder.Property(u => u.Email)
+                   .HasColumnName("Email");
+            builder.Property(u => u.Country)
+                   .HasColumnName("Country");
+            builder.Property(u => u.City)
+                   .HasColumnName("City");
+            builder.HasMany(u => u.SocialLinks)
+                   .WithOne(l => l.User)
+                   .OnDelete(DeleteBehavior.Cascade)
+                   .HasForeignKey("UserId");
+            builder.HasOne(u => u.ChatAccount)
+                   .WithOne(a => a.User)
+                   .OnDelete(DeleteBehavior.Cascade)
+                   .HasForeignKey("AccountId");
         }
     }
 }

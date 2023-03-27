@@ -23,7 +23,7 @@ namespace Piano.BusinessLogic.Queries.Users.GetUsers
                     Username = u.Username,
                     Email = u.Email,
                     Password = u.Password,
-                    UserId = u.UserId,
+                    UserId = u.Id,
                     Role = u.Role,
                     City = u.City,
                     Country = u.Country,

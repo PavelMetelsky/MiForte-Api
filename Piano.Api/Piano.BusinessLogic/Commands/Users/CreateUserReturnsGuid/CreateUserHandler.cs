@@ -28,7 +28,7 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
 
             return new Result
             {
-                Flag = user.Entity.UserId
+                Flag = user.Entity.Id
             };
         }
     }

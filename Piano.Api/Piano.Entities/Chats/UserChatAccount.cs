@@ -2,6 +2,7 @@
 
 public class UserChatAccount
 {
+    public Guid Id { get; set; }
     public TimeOnly AvailableFrom { get; set; }
     public TimeOnly AvailableTo { get; set; }
     public User User { get; set; }
