@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Piano.Database;
-using Piano.Entities.Subscriptions;
+using Piano.Entities;
 
 namespace Piano.BusinessLogic.Commands.SubscriptionCards.DeleteSubscriptionCard;
 

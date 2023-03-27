@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Piano.Entities;
 using Piano.Entities.Mappings;
-using Piano.Entities.Subscriptions;
 
 namespace Piano.Database
 {
@@ -26,7 +25,7 @@ namespace Piano.Database
         {
             modelBuilder.ApplyConfiguration(new UserMap());
             modelBuilder.ApplyConfiguration(new SocialLinkMap());
-            modelBuilder.ApplyConfiguration(new SubscriptionCardMap());
+            modelBuilder.ApplyConfiguration(new SubscriptionMap());
             modelBuilder.ApplyConfiguration(new SessionMap());
         }
     }

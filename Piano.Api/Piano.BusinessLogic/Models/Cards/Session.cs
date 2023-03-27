@@ -8,12 +8,12 @@ public class Session
     public TimeSpan Duration { get; set; }
     public Guid MentorId { get; set; }
 
-    public Entities.Subscriptions.Session ToEntitiesSession()
+    public Entities.Session ToEntitiesSession()
     {
         return new()
         { ClassDate = SessionDate,
           Duration = Duration,
           MentorId = MentorId,
-          State = (Entities.Subscriptions.Session.SessionState) State, };
+          State = (Entities.Session.SessionState) State, };
     }
 }

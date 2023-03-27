@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Piano.Entities.Subscriptions;
 
 namespace Piano.Entities.Mappings
 {
@@ -9,12 +8,37 @@ namespace Piano.Entities.Mappings
         public void Configure(EntityTypeBuilder<Session> builder)
         {
             builder.ToTable("Sessions");
-            builder.HasKey(m => m.SessionId);
+            builder.HasKey(s => s.Id)
+                   .HasName("Name");
 
-            builder.Property(m => m.SessionId).HasColumnName("SessionId");
-            builder.Property(m => m.ClassDate).HasColumnName("ClassDate");
-            builder.Property(m => m.State).HasColumnName("State");
-            builder.Property(m => m.Duration).HasColumnName("Duration");
+            builder.Property(s => s.Duration)
+                   .HasColumnName("Duration")
+                   .HasConversion<long>(); // EF has built-in TimeSpan <=> long converter
+            builder.Property(s => s.Topic)
+                   .HasColumnName("Topic");
+            builder.Property(s => s.Status)
+                   .HasColumnName("Status")
+                   .HasConversion<int>();
+            builder.HasOne(s => s.Subscription)
+                   .WithMany(s => s.Sessions)
+                   .HasForeignKey("SubscriptionId");
+            builder.HasOne(s => s.Mentor)
+                   .WithMany()
+                   .HasForeignKey("MentorId");
+            builder.Property(s => s.Commentary)
+                   .HasColumnName("Commentary");
+            builder.Property(s => s.PlannedDate)
+                   .HasColumnName("PlannedDate");
+            builder.Property(s => s.ActualDate)
+                   .HasColumnName("ActualDate");
+            builder.HasMany(s => s.CommentaryLinks)
+                   .WithOne(l => l.Session)
+                   .OnDelete(DeleteBehavior.Cascade)
+                   .HasForeignKey("SessionId");
+            builder.HasMany(s => s.Attachments)
+                   .WithOne(a => a.Session)
+                   .OnDelete(DeleteBehavior.Cascade)
+                   .HasForeignKey("SessionId");
         }
     }
 }

@@ -9,7 +9,7 @@ public class SubscriptionCard
     public Guid OwnerId { get; set; }
     public int ClassesCount => Sessions.Count;
 
-    public Entities.Subscriptions.SubscriptionCard ToEntitySubscriptionCard()
+    public Entities.SubscriptionCard ToEntitySubscriptionCard()
     {
         return new()
         { Id = Id,
