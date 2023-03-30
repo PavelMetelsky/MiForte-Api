@@ -1,6 +1,6 @@
 ﻿using Piano.Entities.Chats;
 
-namespace Piano.Entities;
+namespace Piano.Entities.User;
 
 public class User
 {

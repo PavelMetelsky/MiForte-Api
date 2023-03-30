@@ -7,7 +7,7 @@ public class StudentMap : IEntityTypeConfiguration<Student>
 {
     public void Configure(EntityTypeBuilder<Student> builder)
     {
-        builder.HasBaseType<User>();
+        builder.HasBaseType<User.User>();
         builder.ToTable("Students");
         builder.HasMany(s => s.Subscriptions)
                .WithOne(s => s.Owner)

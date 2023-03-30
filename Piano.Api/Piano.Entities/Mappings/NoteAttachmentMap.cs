@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Piano.Entities.Note;
 
 namespace Piano.Entities.Mappings;
 

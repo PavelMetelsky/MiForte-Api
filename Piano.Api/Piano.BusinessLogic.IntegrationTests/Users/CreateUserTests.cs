@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Bogus;
 using Piano.BusinessLogic.Commands.Users.CreateUser;
 using Piano.Entities;
+using Piano.Entities.User;
 using Xunit;
 
 namespace Piano.BusinessLogic.IntegrationTests;

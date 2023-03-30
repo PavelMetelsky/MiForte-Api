@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Piano.Entities.Mappings;
 
-public class NoteMap : IEntityTypeConfiguration<Note>
+public class NoteMap : IEntityTypeConfiguration<Note.Note>
 {
-    public void Configure(EntityTypeBuilder<Note> builder)
+    public void Configure(EntityTypeBuilder<Note.Note> builder)
     {
         builder.ToTable("Notes");
         builder.HasKey(n => n.Id);

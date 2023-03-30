@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Piano.Entities.Mappings
 {
-    public class UserMap : IEntityTypeConfiguration<User>
+    public class UserMap : IEntityTypeConfiguration<User.User>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<User.User> builder)
         {
             builder.ToTable("Users");
             builder.HasKey(m => m.Id);

@@ -12,6 +12,6 @@ public class Subscription
     public Student Owner { get; set; }
     public DateOnly Month { get; set; }
     public SubscriptionStatus Status { get; set; }
-    public List<Session> Sessions { get; set; }
+    public List<Session.Session> Sessions { get; set; }
     public int NumberOfSessions { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿namespace Piano.Entities;
+﻿namespace Piano.Entities.Session;
 
 public class Session
 {
@@ -21,19 +21,4 @@ public class Session
     public DateTime ActualDate { get; set; }
     public List<CommentaryLink> CommentaryLinks { get; set; }
     public List<SessionAttachment> Attachments { get; set; }
-}
-
-public class SessionAttachment
-{
-    public Guid Id { get; set; }
-    public AttachmentType Type { get; set; }
-    public byte[] Data { get; set; }
-    public Session Session { get; set; }
-}
-
-public class CommentaryLink
-{
-    public Guid Id { get; set; }
-    public string Link { get; set; }
-    public Session Session { get; set; }
 }

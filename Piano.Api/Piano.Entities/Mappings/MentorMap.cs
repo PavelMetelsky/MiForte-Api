@@ -7,7 +7,7 @@ public class MentorMap : IEntityTypeConfiguration<Mentor>
 {
     public void Configure(EntityTypeBuilder<Mentor> builder)
     {
-        builder.HasBaseType<User>();
+        builder.HasBaseType<User.User>();
         builder.ToTable("Mentors");
         builder.HasMany(m => m.Students)
                .WithOne()

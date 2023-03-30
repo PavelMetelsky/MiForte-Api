@@ -1,6 +1,6 @@
 ﻿namespace Piano.Entities;
 
-public class Mentor : User
+public class Mentor : User.User
 {
-    public List<User> Students { get; set; } 
+    public List<User.User> Students { get; set; } 
 }

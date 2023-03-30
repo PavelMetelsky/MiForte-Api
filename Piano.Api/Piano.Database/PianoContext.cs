@@ -3,6 +3,8 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Piano.Entities;
 using Piano.Entities.Mappings;
+using Piano.Entities.Session;
+using Piano.Entities.User;
 
 namespace Piano.Database
 {

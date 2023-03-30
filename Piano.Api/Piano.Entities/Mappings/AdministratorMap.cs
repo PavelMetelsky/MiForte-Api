@@ -7,7 +7,7 @@ public class AdministratorMap : IEntityTypeConfiguration<Administrator>
 {
     public void Configure(EntityTypeBuilder<Administrator> builder)
     {
-        builder.HasBaseType<User>();
+        builder.HasBaseType<User.User>();
         builder.ToTable("Administrators");
         builder.HasMany(a => a.Mentors)
                .WithOne()

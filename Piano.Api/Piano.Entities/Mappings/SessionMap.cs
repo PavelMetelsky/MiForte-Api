@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Piano.Entities.Mappings
 {
-    public class SessionMap : IEntityTypeConfiguration<Session>
+    public class SessionMap : IEntityTypeConfiguration<Session.Session>
     {
-        public void Configure(EntityTypeBuilder<Session> builder)
+        public void Configure(EntityTypeBuilder<Session.Session> builder)
         {
             builder.ToTable("Sessions");
             builder.HasKey(s => s.Id)
