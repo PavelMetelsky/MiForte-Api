@@ -3,7 +3,9 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Piano.Entities;
 using Piano.Entities.Mappings;
+using Piano.Entities.Mappings.Users;
 using Piano.Entities.Session;
+using Piano.Entities.Subscription;
 using Piano.Entities.User;
 
 namespace Piano.Database

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Piano.Entities.Mappings;
+namespace Piano.Entities.Mappings.Notes;
 
 public class NoteMap : IEntityTypeConfiguration<Note.Note>
 {
@@ -10,7 +10,7 @@ public class NoteMap : IEntityTypeConfiguration<Note.Note>
         builder.ToTable("Notes");
         builder.HasKey(n => n.Id);
 
-        builder.HasOne(n => n.Student)
+        builder.HasOne(n => n.Mentee)
                .WithMany(s => s.Notes)
                .OnDelete(DeleteBehavior.Cascade)
                .HasForeignKey("StudentId");

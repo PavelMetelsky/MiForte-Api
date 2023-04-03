@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Piano.Entities.User;
 
-namespace Piano.Entities.Mappings;
+namespace Piano.Entities.Mappings.Users;
 
 public class AdministratorMap : IEntityTypeConfiguration<Administrator>
 {
@@ -9,9 +10,5 @@ public class AdministratorMap : IEntityTypeConfiguration<Administrator>
     {
         builder.HasBaseType<User.User>();
         builder.ToTable("Administrators");
-        builder.HasMany(a => a.Mentors)
-               .WithOne()
-               .OnDelete(DeleteBehavior.Restrict)
-               .HasForeignKey("AdministratorId");
     }
 }

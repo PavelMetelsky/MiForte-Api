@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Piano.Entities.Mappings
+namespace Piano.Entities.Mappings.Sessions
 {
     public class SessionMap : IEntityTypeConfiguration<Session.Session>
     {
@@ -29,8 +29,10 @@ namespace Piano.Entities.Mappings
                    .HasColumnName("Commentary");
             builder.Property(s => s.PlannedDate)
                    .HasColumnName("PlannedDate");
-            builder.Property(s => s.ActualDate)
-                   .HasColumnName("ActualDate");
+            builder.Property(s => s.ActualStartTime)
+                   .HasColumnName("ActualStartTime");
+            builder.Property(s => s.ActualEndTime)
+                   .HasColumnName("ActualEndTime");
             builder.HasMany(s => s.CommentaryLinks)
                    .WithOne(l => l.Session)
                    .OnDelete(DeleteBehavior.Cascade)

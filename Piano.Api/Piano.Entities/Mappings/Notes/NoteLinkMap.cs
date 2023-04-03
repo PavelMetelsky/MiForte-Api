@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Piano.Entities.Note;
 
-namespace Piano.Entities.Mappings;
+namespace Piano.Entities.Mappings.Notes;
 
 public class NoteLinkMap : IEntityTypeConfiguration<NoteLink>
 {

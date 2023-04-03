@@ -1,9 +1,11 @@
-﻿namespace Piano.Entities.Note;
+﻿using Piano.Entities.User;
+
+namespace Piano.Entities.Note;
 
 public class Note
 {
     public Guid Id { get; set; }
-    public Student Student { get; set; }
+    public Mentee Mentee { get; set; }
     public Mentor Mentor { get; set; }
     public string SessionTopic { get; set; }
     public string Text { get; set; }

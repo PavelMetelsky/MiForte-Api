@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Piano.Entities.Mappings
+namespace Piano.Entities.Mappings.Users
 {
     public class UserMap : IEntityTypeConfiguration<User.User>
     {
@@ -10,9 +10,6 @@ namespace Piano.Entities.Mappings
             builder.ToTable("Users");
             builder.HasKey(m => m.Id);
 
-            builder.Property(u => u.UserType)
-                   .HasColumnName("UserType")
-                   .HasConversion<int>();
             builder.Property(u => u.Login)
                    .HasColumnName("Login");
             builder.Property(u => u.Password)
@@ -25,6 +22,12 @@ namespace Piano.Entities.Mappings
                    .HasColumnName("Country");
             builder.Property(u => u.City)
                    .HasColumnName("City");
+            builder.Property(u => u.IsDeleted)
+                   .HasColumnName("IsDeleted");
+            builder.Property(u => u.IsActive)
+                   .HasColumnName("IsActive");
+            builder.Property(u => u.ApprovedBy)
+                   .HasColumnName("ApprovedBy");
             builder.HasMany(u => u.SocialLinks)
                    .WithOne(l => l.User)
                    .OnDelete(DeleteBehavior.Cascade)

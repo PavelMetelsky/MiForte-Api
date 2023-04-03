@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Piano.Entities.Chats;
 
-namespace Piano.Entities.Mappings;
+namespace Piano.Entities.Mappings.Chats;
 
 public class UserChatAccountMap : IEntityTypeConfiguration<UserChatAccount>
 {

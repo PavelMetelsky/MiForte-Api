@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Piano.Entities.Mappings
+namespace Piano.Entities.Mappings.Subscriptions
 {
-    public class SubscriptionMap : IEntityTypeConfiguration<Subscription>
+    public class SubscriptionMap : IEntityTypeConfiguration<Subscription.Subscription>
     {
         /// <summary>
         /// Converts <see cref="DateOnly" /> to <see cref="DateTime"/> and vice versa.
@@ -17,20 +17,18 @@ namespace Piano.Entities.Mappings
             public DateOnlyConverter() : base(
                 d => d.ToDateTime(TimeOnly.MinValue),
                 d => DateOnly.FromDateTime(d))
-            { }
+            {
+            }
         }
-        
-        public void Configure(EntityTypeBuilder<Subscription> builder)
+
+        public void Configure(EntityTypeBuilder<Subscription.Subscription> builder)
         {
             builder.ToTable("Subscriptions");
             builder.HasKey(m => m.Id);
-            builder.HasOne(s => s.Owner)
+            builder.HasOne(s => s.Mentee)
                    .WithMany(o => o.Subscriptions)
                    .OnDelete(DeleteBehavior.Cascade)
                    .HasForeignKey("StudentId");
-            builder.Property(s => s.Month)
-                   .HasColumnName("Month")
-                   .HasConversion<DateOnlyConverter>();
             builder.Property(s => s.Status)
                    .HasConversion<int>()
                    .HasColumnName("Status");
@@ -38,11 +36,6 @@ namespace Piano.Entities.Mappings
                    .WithOne(s => s.Subscription)
                    .OnDelete(DeleteBehavior.Cascade)
                    .HasForeignKey("SubscriptionId");
-            builder.Property(s => s.NumberOfSessions)
-                   .HasColumnName("NumberOfSessions");
         }
-        
     }
-    
-    
 }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Piano.Entities.Session;
 
-namespace Piano.Entities.Mappings;
+namespace Piano.Entities.Mappings.Sessions;
 
 public class SessionAttachmentMap : IEntityTypeConfiguration<SessionAttachment>
 {

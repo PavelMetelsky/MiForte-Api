@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Piano.Entities.User;
 
-namespace Piano.Entities.Mappings
+namespace Piano.Entities.Mappings.Users
 {
     public class SocialLinkMap : IEntityTypeConfiguration<SocialLink>
     {
