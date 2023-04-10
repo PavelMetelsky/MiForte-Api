@@ -20,14 +20,13 @@ namespace Piano.BusinessLogic.Queries.Users.GetUsers
             return _pianoContext.Users
                 .Select(u => new User
                 {
-                    Username = u.Username,
+                    Username = u.Login,
                     Email = u.Email,
                     Password = u.Password,
                     UserId = u.Id,
-                    Role = u.Role,
                     City = u.City,
                     Country = u.Country,
-                    Telephone = u.Telephone,
+                    Telephone = u.PhoneNumber,
                     SocialLinks = u.SocialLinks.Select(u => u.Link).ToList()
                 })
                 .ToListAsync(cancellationToken: cancellationToken);

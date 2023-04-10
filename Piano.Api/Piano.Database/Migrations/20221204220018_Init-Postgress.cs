@@ -11,7 +11,7 @@ namespace Piano.Database.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "SubscriptionCards",
+                name: "Subscriptions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -21,7 +21,7 @@ namespace Piano.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SubscriptionCards", x => x.Id);
+                    table.PrimaryKey("PK_Subscriptions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,9 +57,9 @@ namespace Piano.Database.Migrations
                 {
                     table.PrimaryKey("PK_Sessions", x => x.SessionId);
                     table.ForeignKey(
-                        name: "FK_Sessions_SubscriptionCards_SubscriptionCardId",
+                        name: "FK_Sessions_Subscriptions_SubscriptionCardId",
                         column: x => x.SubscriptionCardId,
-                        principalTable: "SubscriptionCards",
+                        principalTable: "Subscriptions",
                         principalColumn: "Id");
                 });
 
@@ -103,7 +103,7 @@ namespace Piano.Database.Migrations
                 name: "SocialLinks");
 
             migrationBuilder.DropTable(
-                name: "SubscriptionCards");
+                name: "Subscriptions");
 
             migrationBuilder.DropTable(
                 name: "Users");

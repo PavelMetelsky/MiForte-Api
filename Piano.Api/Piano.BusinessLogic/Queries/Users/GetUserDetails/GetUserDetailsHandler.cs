@@ -20,13 +20,12 @@ namespace Piano.BusinessLogic.Queries.Users.GetUserDetails
 
             return new UserModel
             {
-                Username = user.Username,
+                Username = user.Login,
                 Email = user.Email,
                 UserId = user.Id,
-                Role = user.Role,
                 City = user.City,
                 Country = user.Country,
-                Telephone = user.Telephone,
+                Telephone = user.PhoneNumber,
             };
         }
     }

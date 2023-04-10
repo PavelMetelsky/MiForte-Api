@@ -1,8 +1,8 @@
 ﻿using Piano.BusinessLogic.Models.Cards;
 
-namespace Piano.BusinessLogic.Queries.SubscriptionCards;
+namespace Piano.BusinessLogic.Queries.Subscriptions;
 
 public class GetUsersSubscriptionsResponse
 {
-    public List<SubscriptionCard> SubscriptionCardsList { get; set; }
+    public List<SubscriptionCard> SubscriptionsList { get; set; }
 }

@@ -101,7 +101,7 @@ namespace Piano.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SubscriptionCards", (string)null);
+                    b.ToTable("Subscriptions", (string)null);
                 });
 
             modelBuilder.Entity("Piano.Entities.User", b =>

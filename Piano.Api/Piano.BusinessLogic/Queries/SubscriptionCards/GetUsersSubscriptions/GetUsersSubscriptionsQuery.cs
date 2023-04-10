@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Piano.BusinessLogic.Models.Cards;
 
-namespace Piano.BusinessLogic.Queries.SubscriptionCards;
+namespace Piano.BusinessLogic.Queries.Subscriptions;
 
 public class GetUsersSubscriptionsQuery : IRequest<List<SubscriptionCard>>
 {
