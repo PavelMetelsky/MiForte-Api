@@ -16,17 +16,16 @@ namespace Piano.BusinessLogic.Queries.Users.GetUserDetails
 
         public async Task<UserModel> Handle(GetUserDetailsQuery request, CancellationToken cancellationToken)
         {
-            var user = await _pianoContext.Users.FirstOrDefaultAsync(u => u.UserId.ToString() == request.UserId);
+            var user = await _pianoContext.Users.FirstOrDefaultAsync(u => u.Id.ToString() == request.UserId);
 
             return new UserModel
             {
-                Username = user.Username,
+                Username = user.Login,
                 Email = user.Email,
-                UserId = user.UserId,
-                Role = user.Role,
+                UserId = user.Id,
                 City = user.City,
                 Country = user.Country,
-                Telephone = user.Telephone,
+                Telephone = user.PhoneNumber,
             };
         }
     }

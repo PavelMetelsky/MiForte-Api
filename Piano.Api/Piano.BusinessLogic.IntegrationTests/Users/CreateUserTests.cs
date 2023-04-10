@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Bogus;
 using Piano.BusinessLogic.Commands.Users.CreateUser;
 using Piano.Entities;
+using Piano.Entities.User;
 using Xunit;
 
 namespace Piano.BusinessLogic.IntegrationTests;
@@ -56,7 +57,7 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
 
     private bool UserMatchesRequest(User user, CreateUserCommandNew command, Guid userId)
     {
-        return user.UserId == userId &&
+        return user.Id == userId &&
                user.Username == command.Username &&
                user.Password == command.Password &&
                user.Email == command.Email &&

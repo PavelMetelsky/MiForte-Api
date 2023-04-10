@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Piano.BusinessLogic.Models.Cards;
 
-namespace Piano.BusinessLogic.Commands.SubscriptionCards.CreateSubscriptionCard;
+namespace Piano.BusinessLogic.Commands.Subscriptions.CreateSubscriptionCard;
 
 public class CreateSubscriptionCardCommand : IRequest<Unit>
 {

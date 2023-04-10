@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using Piano.Database;
-using Piano.Entities.Subscriptions;
+using Piano.Entities;
+using Piano.Entities.Subscription;
 
-namespace Piano.BusinessLogic.Commands.SubscriptionCards.DeleteSubscriptionCard;
+namespace Piano.BusinessLogic.Commands.Subscriptions.DeleteSubscriptionCard;
 
 public class DeleteSubscriptionCardHandler : IRequestHandler<DeleteSubscriptionCardCommand, Unit>
 {
@@ -15,9 +16,9 @@ public class DeleteSubscriptionCardHandler : IRequestHandler<DeleteSubscriptionC
 
     public async Task<Unit> Handle(DeleteSubscriptionCardCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _pianoContext.FindAsync<SubscriptionCard>(request.Id);
+        var entity = await _pianoContext.FindAsync<Subscription>(request.Id);
         if (entity is not null)
-            _pianoContext.SubscriptionCards.Remove(entity);
+            _pianoContext.Subscriptions.Remove(entity);
 
         return default;
     }

@@ -1,4 +1,6 @@
-﻿namespace Piano.BusinessLogic.Models.Cards;
+﻿using Piano.Entities.Subscription;
+
+namespace Piano.BusinessLogic.Models.Cards;
 
 public class SubscriptionCard
 {
@@ -8,14 +10,4 @@ public class SubscriptionCard
     public DateTime ActiveMonth { get; set; }
     public Guid OwnerId { get; set; }
     public int ClassesCount => Sessions.Count;
-
-    public Entities.Subscriptions.SubscriptionCard ToEntitySubscriptionCard()
-    {
-        return new()
-        { Id = Id,
-          ActiveMonth = ActiveMonth,
-          BuyingDate = BuyingDate,
-          OwnerId = OwnerId,
-          Sessions = Sessions.Select(s => s.ToEntitiesSession()).ToList() };
-    }
 }
