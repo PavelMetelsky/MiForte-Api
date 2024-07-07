@@ -1,185 +1,99 @@
-.headerButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 70px;
-
-  position: absolute;
-  width: 150px;
-  height: 47px;
-  left: calc(50% - 150px/2 + 545px);
-  top: calc(50% - 47px/2 + 3.5px);
-
-  /* MIFORTE */
-
-  background: #59A686;
-  border-radius: 8px; // 5px
-  border-width: 0;
-}
-
-
-
-.headerButtonText {
-  position: static;
-  left: 28px;
-  top: 14px;
-
-  /* buttonMIFORTE */
-
-  //font-family: 'Raleway';
-  font-family: Arial;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.03em;
-
-  color: #FFFFFF;
-
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 10px;
+/* Основные стили */
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #E0FFE8; /* светло-зеленый фон */
+  color: #034D20; /* темно-зеленый текст */
 }
 
 .mainPageHeader {
-  padding: 0;
-  position: absolute;
-  width: 99%;
-  height: 84px;
+  background: transparent;
+  padding: 10px 0;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
 }
 
 .headerLinks {
-  //font-family: 'Raleway';
-  font-family: Arial;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
 }
 
 .headerLink {
-  margin-right: 40px;
+  color: #086A47; /* зеленый цвет ссылок */
   text-decoration: none;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: medium;
+}
+
+.headerLink:last-child {
+  margin-right: 0;
+}
+
+.headerButton, .headerButton p-button {
+  background-color: #048B54; /* зеленая кнопка */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.headerButton:hover, .headerButton p-button:hover {
+  background-color: #036B40; /* темно-зеленый при наведении */
 }
 
 .yourPlaceOfPowerText {
-  position: absolute;
-  margin-top: 166px;
-  width: 99%;
+  font-size: 24px;
   text-align: center;
-  font-family: Arial; //'Raleway';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 56px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.videoContainer {
+  background-color: #CCEBDA; /* фон для видео */
+  padding: 20px;
 }
 
 .firstOnlinePlatform {
-  position: absolute;
-  margin-top: 247px;
-  width: 99%;
+  font-size: 20px;
   text-align: center;
-  font-family: Arial; // 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 42px;
-}
-
-.backgroundPicture1 {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  margin-top: 84px;
-  display: block;
-  height: 778px;
-  background-size: 100%;
-}
-
-.videoOuterContainer {
-  position: absolute;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  width: 99.4%;
-  height: 724px;
-  top: 601px;
-}
-
-.videoInnerContainer {
-  width: 1240px;
-  height: 100%;
-  background-color: #FFFFFF;
-
-}
-
-.video {
-
-  margin: 48px;
-  height: 628px;
-  width: available;
-  background-size: contain;
+  margin-top: 20px;
 }
 
 .bigGreenDiv {
-  width: 100%;
-  padding: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  margin: 862px 0 0;
-  height: 2490px;
-  background: #86BAA4;
-  z-index: -1;
-  display: flex;
-  justify-content: center;
+  background-color: #A6D4C2; /* фон для основного контентного блока */
+  padding: 20px;
+  margin-top: 20px;
 }
 
-.bigGreenDivText {
-  margin-top: 597px;
-  color: white;
-  font-size: 50px;
+.firstContent h1 {
+  font-size: 28px;
+  color: #023524; /* заголовок */
 }
 
-.firstContent {
-  position: relative;
-  width: 498px;
-  height: 257px;
-  left: 431px;
-  top: 41px;
+.firstContent p {
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-.firstContent #header {
-  font-family: Arial; //'Raleway';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 42px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.01em;
-  color: #FFFFFF;
-}
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+  }
 
-.firstContent #text {
+  .video {
+    width: 100%;
+  }
 
-  color: black;
-  font-family: Arial; //'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  .firstContent {
+    flex-direction: column;
+  }
 }
