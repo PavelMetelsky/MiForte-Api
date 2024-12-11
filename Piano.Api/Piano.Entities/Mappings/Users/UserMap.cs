@@ -32,10 +32,6 @@ namespace Piano.Entities.Mappings.Users
                    .WithOne(l => l.User)
                    .OnDelete(DeleteBehavior.Cascade)
                    .HasForeignKey("UserId");
-            builder.HasOne(u => u.ChatAccount)
-                   .WithOne(a => a.User)
-                   .OnDelete(DeleteBehavior.Cascade)
-                   .HasForeignKey("AccountId");
         }
     }
 }

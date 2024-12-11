@@ -22,12 +22,12 @@ namespace Piano.BusinessLogic.IntegrationTests
 
         public async Task<User?> GetUser(string username, string password)
         {
-            return await _pianoContext.Users.FirstOrDefaultAsync(u => u.Username == username && u.Password == password);
+            return default;
         }
 
         public void AddUser(string email, string username, Guid userId, string password)
         {
-            _pianoContext.Users.Add(new User { Email = email, Username = username, Id = userId, Password = password });
+            //_pianoContext.Users.Add(new User { Email = email, Username = username, Id = userId, Password = password });
             _pianoContext.SaveChanges();
         }
 

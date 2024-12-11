@@ -17,19 +17,7 @@ namespace Piano.BusinessLogic.Queries.Users.GetUsers
 
         public Task<List<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            return _pianoContext.Users
-                .Select(u => new User
-                {
-                    Username = u.Login,
-                    Email = u.Email,
-                    Password = u.Password,
-                    UserId = u.Id,
-                    City = u.City,
-                    Country = u.Country,
-                    Telephone = u.PhoneNumber,
-                    SocialLinks = u.SocialLinks.Select(u => u.Link).ToList()
-                })
-                .ToListAsync(cancellationToken: cancellationToken);
+            return default;
         }
     }
 }

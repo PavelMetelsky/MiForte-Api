@@ -16,17 +16,7 @@ namespace Piano.BusinessLogic.Queries.Users.GetUserDetails
 
         public async Task<UserModel> Handle(GetUserDetailsQuery request, CancellationToken cancellationToken)
         {
-            var user = await _pianoContext.Users.FirstOrDefaultAsync(u => u.Id.ToString() == request.UserId);
-
-            return new UserModel
-            {
-                Username = user.Login,
-                Email = user.Email,
-                UserId = user.Id,
-                City = user.City,
-                Country = user.Country,
-                Telephone = user.PhoneNumber,
-            };
+            return default;
         }
     }
 }

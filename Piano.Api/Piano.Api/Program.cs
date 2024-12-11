@@ -59,5 +59,5 @@ app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
-app.Run(url);// prod
-//app.Run();
+//app.Run(url);// prod
+app.Run();

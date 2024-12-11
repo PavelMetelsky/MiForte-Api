@@ -10,9 +10,6 @@ public class MentorMap : IEntityTypeConfiguration<Mentor>
     {
         builder.HasBaseType<User.User>();
         builder.ToTable("Mentors");
-        builder.HasMany(m => m.Mentees)
-               .WithOne()
-               .HasForeignKey("MentorId")
-               .OnDelete(DeleteBehavior.Restrict);
+        builder.HasMany(m => m.Mentees);
     }
 }

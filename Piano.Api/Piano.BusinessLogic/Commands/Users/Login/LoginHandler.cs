@@ -15,13 +15,7 @@ namespace Piano.BusinessLogic.Commands.Users.CreateUser
 
         public async Task<Result> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var user = await _pianoContext.Users.FirstOrDefaultAsync(
-                u => u.Email == request.Email && u.Password == request.Password);
-
-            return new Result
-            {
-                Flag = user?.Id
-            };
+            return default;
         }
     }
 }

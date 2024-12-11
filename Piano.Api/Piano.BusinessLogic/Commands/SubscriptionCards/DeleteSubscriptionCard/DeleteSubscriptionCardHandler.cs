@@ -16,10 +16,6 @@ public class DeleteSubscriptionCardHandler : IRequestHandler<DeleteSubscriptionC
 
     public async Task<Unit> Handle(DeleteSubscriptionCardCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _pianoContext.FindAsync<Subscription>(request.Id);
-        if (entity is not null)
-            _pianoContext.Subscriptions.Remove(entity);
-
         return default;
     }
 }

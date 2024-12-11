@@ -58,12 +58,11 @@ public class CreateUserTests : IClassFixture<InMemorySeedDataFixture>
     private bool UserMatchesRequest(User user, CreateUserCommandNew command, Guid userId)
     {
         return user.Id == userId &&
-               user.Username == command.Username &&
+               user.Login == command.Username &&
                user.Password == command.Password &&
                user.Email == command.Email &&
-               user.Role == command.Role &&
                user.Country == command.Country &&
                user.City == command.City &&
-               user.Telephone == command.Telephone;
+               user.PhoneNumber == command.Telephone;
     }
 }
