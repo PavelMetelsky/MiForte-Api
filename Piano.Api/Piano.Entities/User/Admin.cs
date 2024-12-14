@@ -1,6 +1,6 @@
 ﻿namespace Piano.Entities.User;
 
-public class Administrator : User
+public class Admin : User
 {
    
 }

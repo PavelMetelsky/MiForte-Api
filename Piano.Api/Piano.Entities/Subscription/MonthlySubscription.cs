@@ -9,8 +9,8 @@ public class MonthlySubscription : Subscription
 
     public override bool CanAddSession(Session.Session session)
     {
-        return Status == SubscriptionStatus.Active &&
-               Sessions.Count < NumberOfSessions &&
-               SubscriptionPeriod.Contains(DateOnly.FromDateTime(session.PlannedDate));
+        return Status == SubscriptionStatus.Active
+            && Sessions.Count < NumberOfSessions
+            && SubscriptionPeriod.Contains(DateOnly.FromDateTime(session.PlannedDate));
     }
 }

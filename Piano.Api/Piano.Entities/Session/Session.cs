@@ -15,7 +15,7 @@ public class Session
     public DateTime PlannedDate { get; set; }
     public DateTime? ActualStartTime { get; set; }
     public DateTime? ActualEndTime { get; set; }
-    public List<CommentaryLink> CommentaryLinks { get; set; }
+    public List<CommentLink> CommentaryLinks { get; set; }
     public List<SessionAttachment> Attachments { get; set; }
 
     [NotMapped] public bool CanBeChanged => Status is SessionStatus.Planned or SessionStatus.Postponed;

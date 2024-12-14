@@ -11,4 +11,5 @@ public class Note
     public string Text { get; set; }
     public List<NoteLink> Links { get; set; }
     public List<NoteAttachment> Attachments { get; set; }
+    public int MenteeId { get; set; }
 }

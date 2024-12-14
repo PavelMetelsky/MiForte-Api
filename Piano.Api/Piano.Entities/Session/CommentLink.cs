@@ -1,6 +1,6 @@
 ﻿namespace Piano.Entities.Session;
 
-public class CommentaryLink
+public class CommentLink
 {
     public Guid Id { get; set; }
     public string Link { get; set; }

@@ -4,9 +4,9 @@ using Piano.Entities.Session;
 
 namespace Piano.Entities.Mappings.Sessions;
 
-public class CommentaryLinkMap : IEntityTypeConfiguration<CommentaryLink>
+public class CommentaryLinkMap : IEntityTypeConfiguration<CommentLink>
 {
-    public void Configure(EntityTypeBuilder<CommentaryLink> builder)
+    public void Configure(EntityTypeBuilder<CommentLink> builder)
     {
         builder.ToTable("SessionCommentaryLinks");
         builder.HasKey(l => l.Id);
