@@ -1,36 +1,29 @@
 <main>
-  <div class="mainPageHeader">
-    <div class="headerContainer">
-      <nav class="headerLinks">
-        <a class="headerLink">О проекте</a>
-        <a class="headerLink">Обо мне</a>
-        <a class="headerLink">Курсы</a>
-        <a class="headerLink">Подкасты</a>
-        <a class="headerLink">Отзывы</a>
-        <a class="headerLink" style="margin-right: 0">Контакты</a>
-      </nav>
-      <button class="headerButton" routerLink="/account/login">Login</button>
-      <p-button label="Go to user Profile" (onClick)="toUserProfile()" icon="pi pi-angle-left"></p-button>
-    </div>
-  </div>
+  <h1>Добро пожаловать в MiForte</h1>
+  <p>Первая онлайн и офлайн школа для обучения игре на фортепиано.</p>
 
-  <div class="yourPlaceOfPowerText">
-    Твоё место силы
-  </div>
-  <div class="videoContainer">
-    <div class="video"></div>
-  </div>
+  <section class="infoSection" id="about">
+    <h2>О проекте</h2>
+    <p>MiForte — это современная платформа для обучения пианистов любого уровня.</p>
+  </section>
 
-  <div class="firstOnlinePlatform">Первая онлайн платформа для обучения пианистов</div>
+  <section class="infoSection" id="about-me">
+    <h2>Обо мне</h2>
+    <p>Я профессиональный пианист и педагог с многолетним опытом преподавания.</p>
+  </section>
 
-  <div class="bigGreenDiv">
-    <div class="firstContent">
-      <div class="firstContentText">
-        <h1>Рост с ментором с нуля</h1>
-        <p>Вы получите краткие и понятные задания под экологичным руководством ментора, который пошагово выстроит
-          процесс занятий, с учётом оптимального времени для достижения цели, начиная с любого уровня исполнения, даже
-          для новичков.</p>
-      </div>
-    </div>
-  </div>
+  <section class="infoSection" id="courses">
+    <h2>Курсы</h2>
+    <ul>
+      <li>Индивидуальные занятия</li>
+      <li>Групповые курсы</li>
+      <li>Подготовка к конкурсам</li>
+    </ul>
+  </section>
+
+  <section class="infoSection" id="contacts">
+    <h2>Контакты</h2>
+    <p>Email: info@miforte.com</p>
+    <p>Телефон: +123456789</p>
+  </section>
 </main>

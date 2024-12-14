@@ -1,99 +1,89 @@
-/* Основные стили */
+// Цветовая палитра из загруженного изображения
+$light-green: #E8F7ED;
+$green-1: #C8EBD6;
+$green-2: #A6DFBF;
+$green-3: #85D2A8;
+$green-4: #64C491;
+$dark-green: #459E76;
+
+// Общие стили
 body {
-  font-family: 'Raleway', sans-serif;
-  background-color: #E0FFE8; /* светло-зеленый фон */
-  color: #034D20; /* темно-зеленый текст */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: $light-green;
+  color: $dark-green;
 }
 
-.mainPageHeader {
-  background: transparent;
-  padding: 10px 0;
-}
-
-.headerContainer {
+header {
+  background-color: $green-3;
+  padding: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 36px;
-}
 
-.headerLinks {
-  display: flex;
-  justify-content: center;
-  margin-right: auto;
-}
+  nav {
+    display: flex;
+    gap: 1rem;
 
-.headerLink {
-  color: #086A47; /* зеленый цвет ссылок */
-  text-decoration: none;
-  margin-right: 20px;
-  font-size: 16px;
-  font-weight: medium;
-}
-
-.headerLink:last-child {
-  margin-right: 0;
-}
-
-.headerButton, .headerButton p-button {
-  background-color: #048B54; /* зеленая кнопка */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.headerButton:hover, .headerButton p-button:hover {
-  background-color: #036B40; /* темно-зеленый при наведении */
-}
-
-.yourPlaceOfPowerText {
-  font-size: 24px;
-  text-align: center;
-  margin: 20px 0;
-  font-weight: bold;
-}
-
-.videoContainer {
-  background-color: #CCEBDA; /* фон для видео */
-  padding: 20px;
-}
-
-.firstOnlinePlatform {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.bigGreenDiv {
-  background-color: #A6D4C2; /* фон для основного контентного блока */
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.firstContent h1 {
-  font-size: 28px;
-  color: #023524; /* заголовок */
-}
-
-.firstContent p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Адаптивные стили */
-@media (max-width: 768px) {
-  .headerContainer {
-    flex-direction: column;
+    a {
+      text-decoration: none;
+      color: $dark-green;
+      font-weight: bold;
+      &:hover {
+        color: $green-4;
+      }
+    }
   }
 
-  .video {
-    width: 100%;
+  button {
+    background-color: $green-4;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $dark-green;
+    }
+  }
+}
+
+main {
+  text-align: center;
+  padding: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    color: $green-2;
   }
 
-  .firstContent {
-    flex-direction: column;
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: $dark-green;
+    margin: 1rem 0;
+  }
+
+  .infoSection {
+    background-color: $green-1;
+    padding: 1rem;
+    border: 1px solid $green-3;
+    margin: 1rem 0;
+    border-radius: 8px;
+
+    h2 {
+      font-size: 1.5rem;
+      color: $green-4;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        font-size: 1rem;
+        color: $dark-green;
+        margin: 0.5rem 0;
+      }
+    }
   }
 }
